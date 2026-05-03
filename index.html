@@ -251,6 +251,18 @@
     .hero-visual {
       align-self: stretch;
       min-height: 560px;
+      position: relative;
+    }
+
+    .hero-collage {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .hero-photo {
+      min-height: 560px;
       border: 1px solid rgba(82, 59, 50, 0.13);
       border-radius: 8px;
       overflow: hidden;
@@ -259,29 +271,45 @@
       position: relative;
     }
 
-    .hero-visual img {
+    .hero-photo img,
+    .story-media img {
       width: 100%;
       height: 100%;
-      min-height: 560px;
+      min-height: inherit;
       object-fit: cover;
       object-position: center;
     }
 
-    .hero-visual figcaption {
+    .hero-photo-main img {
+      object-position: center 38%;
+    }
+
+    .hero-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-stack .hero-photo {
+      min-height: 272px;
+      box-shadow: 0 12px 32px rgba(61, 43, 35, 0.08);
+    }
+
+    .brand-seal {
       position: absolute;
-      inset-inline: 18px;
-      bottom: 18px;
-      padding: 12px 14px;
-      border: 1px solid rgba(82, 59, 50, 0.1);
+      inset-inline-start: 22px;
+      bottom: 22px;
+      width: min(168px, 36%);
+      padding: 16px;
+      border: 1px solid rgba(82, 59, 50, 0.12);
       border-radius: 8px;
-      color: var(--earth);
       background: rgba(255, 253, 248, 0.9);
-      font-weight: 800;
+      box-shadow: 0 16px 36px rgba(61, 43, 35, 0.16);
     }
 
     section {
       padding: 92px 0;
       scroll-margin-top: 90px;
+      position: relative;
     }
 
     .section-inner {
@@ -308,7 +336,7 @@
 
     .story {
       background:
-        linear-gradient(180deg, rgba(14, 75, 87, 0.055), rgba(14, 75, 87, 0)),
+        linear-gradient(180deg, rgba(251, 248, 243, 0) 0%, rgba(14, 75, 87, 0.055) 20%, rgba(251, 248, 243, 0) 100%),
         var(--paper);
     }
 
@@ -329,11 +357,7 @@
     }
 
     .story-media img {
-      width: 100%;
-      height: 100%;
       min-height: 430px;
-      object-fit: cover;
-      object-position: center;
     }
 
     .story-text p {
@@ -346,10 +370,8 @@
     }
 
     .product-catalog {
-      border-top: 1px solid rgba(82, 59, 50, 0.1);
-      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
       background:
-        linear-gradient(180deg, rgba(82, 59, 50, 0.04), rgba(14, 75, 87, 0.045)),
+        linear-gradient(180deg, rgba(251, 248, 243, 0) 0%, rgba(222, 210, 195, 0.42) 14%, rgba(232, 238, 231, 0.36) 84%, rgba(251, 248, 243, 0) 100%),
         var(--paper);
     }
 
@@ -589,9 +611,11 @@
     }
 
     .order-strip {
-      background: var(--earth);
       color: var(--white);
       padding: 42px 0;
+      background:
+        linear-gradient(180deg, rgba(251, 248, 243, 0.04), rgba(82, 59, 50, 0) 28%),
+        linear-gradient(135deg, #5a4036 0%, var(--earth) 58%, #3e463e 100%);
     }
 
     .order-strip .section-inner {
@@ -615,8 +639,10 @@
     }
 
     .contact {
-      background: var(--forest);
       color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(82, 59, 50, 0.26) 0%, rgba(14, 75, 87, 0) 28%),
+        var(--forest);
     }
 
     .contact h2,
@@ -712,8 +738,20 @@
       }
 
       .hero-visual,
-      .hero-visual img {
+      .hero-photo {
         min-height: 360px;
+      }
+
+      .hero-collage {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-stack .hero-photo {
+        min-height: 220px;
       }
 
       .product-summary,
@@ -781,15 +819,27 @@
         min-height: 0;
       }
 
-      .hero-visual,
-      .hero-visual img {
-        min-height: 300px;
+      .hero-visual {
+        min-height: 0;
       }
 
-      .hero-visual figcaption {
-        inset-inline: 12px;
+      .hero-photo {
+        min-height: 260px;
+      }
+
+      .hero-stack {
+        gap: 10px;
+      }
+
+      .hero-stack .hero-photo {
+        min-height: 128px;
+      }
+
+      .brand-seal {
+        width: 106px;
+        inset-inline-start: 12px;
         bottom: 12px;
-        padding: 10px 12px;
+        padding: 10px;
       }
 
       section {
@@ -861,7 +911,7 @@
           <a href="#seasons">עונות</a>
           <a href="#contact">הזמנה</a>
         </div>
-        <a class="button button-dark" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה</a>
+        <a class="button button-dark" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">להזמנה</a>
       </nav>
     </header>
 
@@ -872,7 +922,7 @@
           <h1 id="hero-title">אדמא</h1>
           <p class="hero-copy">סבונים טבעיים, שמפו מוצק ומארזים עונתיים שמביאים למקלחת ריח עדין, מרקם נעים ותחושה נקייה. בוחרים מה שמתאים, וממשיכים להזמנה קצרה ב-WhatsApp.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
             <a class="button button-secondary" href="#products">לראות מוצרים</a>
           </div>
           <div class="hero-note" aria-label="עיקרי ההזמנה">
@@ -882,10 +932,20 @@
           </div>
         </div>
 
-        <figure class="hero-visual" aria-label="סבון אדמא מוחזק בידיים">
-          <img src="assets/images/product-1.jpg" alt="סבון אדמא טבעי מוחזק בידיים">
-          <figcaption>סבון מוצק טבעי, עונתי וריחני</figcaption>
-        </figure>
+        <div class="hero-visual hero-collage" aria-label="תמונות פתיחה של אדמא">
+          <figure class="hero-photo hero-photo-main">
+            <img src="assets/images/product-7.jpg" alt="אור מחזיקה סבון אדמא">
+          </figure>
+          <div class="hero-stack">
+            <figure class="hero-photo">
+              <img src="assets/images/product-1.jpg" alt="סבון אדמא טבעי מוחזק בידיים">
+            </figure>
+            <figure class="hero-photo">
+              <img src="assets/images/product-4.jpg" alt="מארז אדמא עם מוצרים טבעיים">
+            </figure>
+          </div>
+          <img class="brand-seal" src="assets/images/adma-emblem-teal.png" alt="">
+        </div>
       </section>
 
       <section class="story" id="story" aria-labelledby="story-title">
@@ -901,7 +961,7 @@
             <p>אפשר להתייעץ לפני הזמנה, לבחור מארז קטן או גדול, ולבדוק מה זמין עכשיו. אני עונה ב-WhatsApp ועוזרת לבחור משהו שמתאים באמת.</p>
             <div class="cta-actions">
               <a class="button button-primary" href="#products">לבחירת מוצרים</a>
-              <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">לשאלה מהירה</a>
+              <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">לשאלה מהירה</a>
             </div>
           </div>
         </div>
@@ -919,7 +979,7 @@
             <a class="summary-tile" href="#soaps">
               <strong>סבונים מוצקים</strong>
               <small>גדלים, ריחות ורכיבים עונתיים</small>
-              <span>מ-₪29</span>
+              <span>49 ₪</span>
             </a>
             <a class="summary-tile" href="#hair">
               <strong>שיער וטיפוח</strong>
@@ -951,82 +1011,82 @@
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>סבון מוצק עונתי</h3>
-                    <span class="price">₪29 / ₪34 / ₪38</span>
+                    <span class="price">49 ₪</span>
                   </div>
-                  <p>קטן, בינוני או גדול. בחירה טובה להתחלה או לשימוש קבוע.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <p>מחיר אחיד לכל הסבונים המוצקים. בחירה טובה להתחלה או לשימוש קבוע.</p>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="סבון מוצק עונתי" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>פריחת אביב</h3>
-                    <span class="price">₪38</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>סבון עם סלק ולבנדר, בריח רך ונקי.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="פריחת אביב" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>גביש הארץ</h3>
-                    <span class="price">₪38</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>סבון פחם ובוץ ים המלח, לניקוי עמוק וריח מרענן.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="גביש הארץ" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>מוחיטו מלפפון</h3>
-                    <span class="price">אזל במלאי</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>מלפפון וחליטת לואיזה, רענן ועדין במיוחד.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">לעדכון זמינות</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מוחיטו מלפפון" target="_blank" rel="noopener">לעדכון זמינות</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>פרדס רימונים</h3>
-                    <span class="price">לפי זמינות</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>רימונים וורדים, עם ריח פירותי-פרחוני.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="פרדס רימונים" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>צ'אי</h3>
-                    <span class="price">לפי זמינות</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>סבון צ'אי מסאלה חמים, עם תבלינים שהושרו בשמן זית ישראלי.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="צ'אי" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>חלב ודבש</h3>
-                    <span class="price">לפי זמינות</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>חלב שקד ושיבולת שועל, לתחושה רכה ומזינה.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="חלב ודבש" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>הדרים</h3>
-                    <span class="price">לפי זמינות</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>לימון, אשכולית ותפוז, לריח נקי ובהיר.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="הדרים" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
                   <div class="product-row-top">
                     <h3>שורשים</h3>
-                    <span class="price">לפי זמינות</span>
+                    <span class="price">49 ₪</span>
                   </div>
                   <p>ג'ינג'ר, כורכום וגזר, עם אופי אדמתי וחמים.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="שורשים" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
               </div>
             </details>
@@ -1046,7 +1106,7 @@
                     <span class="price">₪38</span>
                   </div>
                   <p>שמפו מוצק רוזמרין, ללא SLS/SCS.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="שדות של רוזמרין" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1055,7 +1115,7 @@
                     <span class="price">לפי זמינות</span>
                   </div>
                   <p>שמפו סרפד מוצק, עשיר במינרלים.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="נוגה" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1064,7 +1124,7 @@
                     <span class="price">₪65</span>
                   </div>
                   <p>סרום רוזמרין לשיער, נוח להשלמת השגרה.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="סרום רוזמרין" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
               </div>
@@ -1085,7 +1145,7 @@
                     <span class="price">₪149</span>
                   </div>
                   <p>מארז שמרכז כמה אפשרויות לשגרת שיער טבעית.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז לשיער" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1094,7 +1154,7 @@
                     <span class="price">₪119</span>
                   </div>
                   <p>מתנה רעננה ובהירה למי שאוהב ריחות נקיים.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז הדרים" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1103,7 +1163,7 @@
                     <span class="price">₪119</span>
                   </div>
                   <p>בחירה מסודרת למי שרוצה להתחיל לאט ולגלות מה מתאים.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז טיפוח" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1112,7 +1172,7 @@
                     <span class="price">₪149</span>
                   </div>
                   <p>מארז שקט ונעים לערב איטי או למתנה מרגיעה.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז מרגיע" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1121,7 +1181,7 @@
                     <span class="price">₪85</span>
                   </div>
                   <p>שילוב קטן וחמים של ריח, אור וסבון טבעי.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז נר וסבון" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1130,7 +1190,7 @@
                     <span class="price">₪120</span>
                   </div>
                   <p>מתנה אישית, לא כבדה, שמתאימה כמעט לכל רגע.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז מתנה קטן" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1139,7 +1199,7 @@
                     <span class="price">₪200</span>
                   </div>
                   <p>מארז מלא יותר, לאירוח, חג או תודה גדולה.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז מתנה גדול" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1148,7 +1208,7 @@
                     <span class="price">₪50</span>
                   </div>
                   <p>דרך קלה להכיר כמה ריחות לפני שבוחרים מועדף.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="מארז דוגמיות" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
               </div>
             </details>
@@ -1168,7 +1228,7 @@
                     <span class="price">₪12</span>
                   </div>
                   <p>כיס ליפה טבעית לשימוש נוח עם סבון מוצק.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="כיס ליפה" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1177,7 +1237,7 @@
                     <span class="price">₪19</span>
                   </div>
                   <p>סבוניה מאווררת שעוזרת לשמור על הסבון לאורך זמן.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="סבוניה מעץ טבעי" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1186,7 +1246,7 @@
                     <span class="price">₪22</span>
                   </div>
                   <p>נר קטן שמוסיף ריח ואווירה לצד שגרת הטיפוח.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="נר" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
 
                 <article class="product-row">
@@ -1195,7 +1255,7 @@
                     <span class="price">₪15</span>
                   </div>
                   <p>תוספת קטנה ונגישה למארז או להזמנה קיימת.</p>
-                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                  <a class="product-link" href="https://wa.me/972548858424" data-wa-product="שפתון" target="_blank" rel="noopener">להזמנה או שאלה</a>
                 </article>
               </div>
             </details>
@@ -1276,7 +1336,7 @@
         <div class="section-inner">
           <p><strong>רוצה לבחור יחד?</strong> אפשר לפתוח את WhatsApp, לראות מה זמין עכשיו, לשאול על ריח או מארז, ולהמשיך להזמנה בלי טופס ארוך.</p>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחת WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">פתיחת WhatsApp</a>
             <a class="button button-secondary" href="#products">חזרה למוצרים</a>
           </div>
         </div>
@@ -1290,8 +1350,8 @@
             <p class="section-lead">אני עונה ב-WhatsApp, עוזרת לבדוק מה זמין, ומכוונת למוצר או מארז שמתאים לשימוש אישי או למתנה.</p>
           </div>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">דברו איתי</a>
-            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחת קטלוג</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">דברו איתי</a>
+            <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">פתיחת קטלוג</a>
           </div>
         </div>
       </section>
@@ -1304,10 +1364,25 @@
         <div class="footer-links">
           <a href="#products">מוצרים</a>
           <a href="#contact">הזמנה</a>
-          <a href="https://wa.me/c/972548858424" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20ADMA%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%95%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%F0%9F%99%82" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
     </footer>
   </div>
+  <script>
+    (() => {
+      const phone = "972548858424";
+      const generalMessage = "היי, הגעתי מהאתר של ADMA ואני רוצה לקבל פרטים ולבצע הזמנה 🙂";
+      const productMessage = (product) => `היי, הגעתי מהאתר של ADMA ואני רוצה להזמין את ${product}. אשמח לקבל פרטים 🙂`;
+      const encodeMessage = (message) => encodeURIComponent(message)
+        .replace(/[!'()*]/g, (char) => `%${char.charCodeAt(0).toString(16).toUpperCase()}`);
+      const buildWhatsAppUrl = (message) => `https://wa.me/${phone}?text=${encodeMessage(message)}`;
+
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
+        const product = link.dataset.waProduct;
+        link.href = buildWhatsAppUrl(product ? productMessage(product) : generalMessage);
+      });
+    })();
+  </script>
 </body>
 </html>
