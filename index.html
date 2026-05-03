@@ -1,436 +1,817 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אדמא – סבון טבעי עונתי | תוצרת הארץ</title>
-<meta name="description" content="אדמא – סבונים טבעיים, קרמים ושמנים מחומרי גלם מאדמות סובב ירושלים. כל מוצר נושא את עונות השנה.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --brown:#4A3728;
-  --brown-mid:#6B4F3A;
-  --teal:#1E4D4A;
-  --teal-light:#2A6B67;
-  --beige:#C4B5A8;
-  --cream:#F8F3EE;
-  --warm-white:#FFFDF9;
-  --text:#2C2218;
-  --text-muted:#8A7A6E;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אדמא | סבון טבעי עונתי מתוצרת הארץ</title>
+  <meta name="description" content="אדמא - סבון טבעי עונתי מתוצרת הארץ. קולקציות עונתיות, ברנדבוק ושפת מותג לצד קטלוג WhatsApp להזמנות.">
+  <meta property="og:title" content="אדמא | סבון טבעי עונתי">
+  <meta property="og:description" content="אתר המותג של אדמא - סבון טבעי עונתי מתוצרת הארץ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://admasoaps.com/">
+  <meta property="og:image" content="assets/images/adma-logo-brown.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Noto+Serif+Hebrew:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;}
-nav.scrolled{background:rgba(248,243,238,.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(74,55,40,.08);}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.nav-logo-mark{width:34px;height:20px;position:relative;}
-.nav-logo-mark span{position:absolute;width:100%;height:8px;border-radius:10px;display:block;}
-.nav-logo-mark span:first-child{top:0;background:var(--brown);}
-.nav-logo-mark span:last-child{bottom:0;background:var(--teal);}
-.nav-logo-name{font-size:22px;font-weight:900;color:var(--brown);letter-spacing:1px;}
-.nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links a{text-decoration:none;color:var(--text-muted);font-size:15px;font-weight:500;transition:color .3s;}
-.nav-links a:hover{color:var(--teal);}
-.nav-wa{display:inline-flex;align-items:center;gap:8px;padding:9px 22px;background:var(--teal);color:#fff;border-radius:24px;text-decoration:none;font-size:14px;font-weight:700;transition:all .3s;}
-.nav-wa:hover{background:var(--teal-light);transform:translateY(-1px);}
+    :root {
+      --earth: #523b32;
+      --earth-soft: #7b6258;
+      --forest: #0e4b57;
+      --leaf: #677761;
+      --clay: #a36f4d;
+      --sand: #ded2c3;
+      --paper: #fbf8f3;
+      --wash: #f3ece3;
+      --ink: #2b231f;
+      --muted: #756a62;
+      --line: #ded2c6;
+      --white: #fffdf8;
+      --shadow: 0 18px 50px rgba(61, 43, 35, 0.11);
+    }
 
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 60px 80px;gap:60px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%, rgba(30,77,74,.06) 0%, transparent 70%);}
-.hero-text{position:relative;z-index:1;}
-.hero-eyebrow{font-size:12px;letter-spacing:4px;color:var(--teal);font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
-.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--teal);}
-.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(56px,7vw,96px);color:var(--brown);line-height:1;margin-bottom:10px;}
-.hero-h1 em{font-style:italic;color:var(--teal);}
-.hero-sub{font-size:13px;letter-spacing:5px;color:var(--beige);font-weight:600;margin-bottom:30px;}
-.hero-desc{font-size:17px;line-height:1.85;color:var(--text-muted);max-width:440px;margin-bottom:42px;}
-.hero-cta{display:inline-flex;gap:14px;flex-wrap:wrap;}
-.btn-primary{padding:14px 34px;background:var(--brown);color:#fff;border-radius:28px;text-decoration:none;font-weight:700;font-size:15px;transition:all .3s;}
-.btn-primary:hover{background:var(--brown-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,55,40,.25);}
-.btn-ghost{padding:14px 34px;border:1.5px solid var(--brown);color:var(--brown);border-radius:28px;text-decoration:none;font-weight:600;font-size:15px;transition:all .3s;}
-.btn-ghost:hover{background:var(--brown);color:#fff;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.hero-visual{position:relative;z-index:1;}
-.hero-orb{width:100%;aspect-ratio:1;border-radius:60% 40% 70% 30% / 50% 60% 40% 60%;background:linear-gradient(135deg,rgba(196,181,168,.25) 0%,rgba(30,77,74,.12) 100%);display:flex;align-items:center;justify-content:center;position:relative;animation:morph 8s ease-in-out infinite;}
-@keyframes morph{0%,100%{border-radius:60% 40% 70% 30%/50% 60% 40% 60%;}50%{border-radius:40% 60% 30% 70%/60% 40% 60% 40%;}}
-.hero-orb-text{text-align:center;}
-.hero-orb-big{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:var(--brown);opacity:.15;line-height:1;}
-.hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px;}
-.hero-badge{padding:8px 18px;background:rgba(74,55,40,.06);border:1px solid rgba(74,55,40,.15);border-radius:20px;font-size:12px;color:var(--brown-mid);font-weight:600;letter-spacing:1px;}
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);text-align:center;color:var(--text-muted);font-size:12px;letter-spacing:2px;display:flex;flex-direction:column;align-items:center;gap:8px;}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--beige),transparent);animation:scrollAnim 2s ease-in-out infinite;}
-@keyframes scrollAnim{0%,100%{opacity:.3;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.2);}}
+    body {
+      margin: 0;
+      font-family: "Heebo", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-/* STORY */
-.story{padding:100px 60px;background:var(--warm-white);position:relative;}
-.story-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.section-label{font-size:11px;letter-spacing:5px;color:var(--teal);font-weight:700;margin-bottom:16px;text-transform:uppercase;}
-.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,50px);color:var(--brown);line-height:1.2;margin-bottom:24px;}
-.section-title em{font-style:italic;color:var(--teal);}
-.story-body{font-size:16px;line-height:1.9;color:var(--text-muted);}
-.story-body p+p{margin-top:16px;}
-.story-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.story-card{background:var(--cream);border-radius:16px;padding:24px;border:1px solid rgba(196,181,168,.3);}
-.story-card-icon{font-size:24px;margin-bottom:10px;}
-.story-card h4{color:var(--teal);font-size:14px;font-weight:700;margin-bottom:6px;}
-.story-card p{color:var(--text-muted);font-size:13px;line-height:1.6;}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* PRODUCTS */
-.products{padding:100px 60px;background:var(--cream);}
-.products-inner{max-width:1200px;margin:0 auto;}
-.products-header{text-align:center;margin-bottom:60px;}
-.filter-bar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:50px;}
-.filter-btn{padding:8px 22px;border-radius:22px;border:1.5px solid rgba(74,55,40,.2);background:transparent;color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;transition:all .25s;font-family:'Heebo',sans-serif;}
-.filter-btn.active,.filter-btn:hover{background:var(--brown);color:#fff;border-color:var(--brown);}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;}
-.product-card{background:var(--warm-white);border-radius:20px;overflow:hidden;border:1px solid rgba(196,181,168,.2);transition:all .3s;cursor:default;}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(74,55,40,.12);}
-.product-card.hidden{display:none;}
-.product-img{height:240px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.product-img img{width:100%;height:100%;object-fit:cover;}
-.product-img-placeholder{font-size:64px;opacity:.25;}
-.season-tag{position:absolute;top:14px;right:14px;padding:5px 14px;border-radius:18px;font-size:11px;font-weight:700;color:#fff;backdrop-filter:blur(8px);}
-.tag-summer{background:rgba(180,110,20,.85);}
-.tag-autumn{background:rgba(120,70,40,.85);}
-.tag-winter{background:rgba(40,90,120,.85);}
-.tag-spring{background:rgba(60,110,60,.85);}
-.tag-all{background:rgba(30,77,74,.85);}
-.product-body{padding:22px 24px;}
-.product-name{font-size:17px;font-weight:700;color:var(--brown);margin-bottom:8px;}
-.product-desc{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:18px;}
-.product-foot{display:flex;align-items:center;justify-content:space-between;}
-.product-price{font-size:18px;font-weight:900;color:var(--teal);}
-.wa-link{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:#25D366;color:#fff;border-radius:18px;font-size:12px;font-weight:700;text-decoration:none;transition:all .25s;}
-.wa-link:hover{background:#1fba5a;transform:scale(1.04);}
+    a {
+      color: inherit;
+    }
 
-/* VALUES */
-.values{padding:100px 60px;background:var(--brown);color:#fff;}
-.values-inner{max-width:1100px;margin:0 auto;}
-.values-header{text-align:center;margin-bottom:60px;}
-.values-header .section-label{color:var(--beige);}
-.values-header .section-title{color:#fff;}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
-.value-card{text-align:center;padding:30px 20px;}
-.value-icon{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:26px;}
-.value-card h3{font-size:16px;font-weight:700;margin-bottom:10px;color:#fff;}
-.value-card p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;}
+    .site-shell {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(82, 59, 50, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(82, 59, 50, 0.03) 1px, transparent 1px),
+        var(--paper);
+      background-size: 44px 44px;
+    }
 
-/* CONTACT */
-.contact{padding:100px 60px;background:linear-gradient(135deg,var(--teal) 0%,#0D3330 100%);color:#fff;text-align:center;}
-.contact-inner{max-width:700px;margin:0 auto;}
-.contact .section-label{color:rgba(255,255,255,.5);}
-.contact .section-title{color:#fff;margin-bottom:18px;}
-.contact-desc{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:46px;}
-.contact-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.contact-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:28px;font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;}
-.contact-btn-wa{background:#25D366;color:#fff;}
-.contact-btn-wa:hover{background:#1fba5a;transform:translateY(-2px);}
-.contact-btn-outline{border:1.5px solid rgba(255,255,255,.35);color:#fff;}
-.contact-btn-outline:hover{background:rgba(255,255,255,.1);}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(82, 59, 50, 0.12);
+      background: rgba(251, 248, 243, 0.91);
+      backdrop-filter: blur(18px);
+    }
 
-/* FOOTER */
-footer{background:#1A1209;color:rgba(255,255,255,.5);padding:30px 60px;display:flex;align-items:center;justify-content:space-between;font-size:13px;}
-.footer-logo{font-family:'Playfair Display',serif;font-size:20px;color:rgba(255,255,255,.8);}
-.footer-links{display:flex;gap:24px;}
-.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:12px;transition:color .3s;}
-.footer-links a:hover{color:rgba(255,255,255,.8);}
+    .nav {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-/* REVEAL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:.1s;}
-.reveal-delay-2{transition-delay:.2s;}
-.reveal-delay-3{transition-delay:.3s;}
-.reveal-delay-4{transition-delay:.4s;}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{padding:16px 24px;}
-  .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;padding:100px 24px 60px;gap:40px;}
-  .hero-visual{display:none;}
-  .story{padding:70px 24px;}
-  .story-inner{grid-template-columns:1fr;gap:40px;}
-  .products{padding:70px 24px;}
-  .values{padding:70px 24px;}
-  .values-grid{grid-template-columns:1fr 1fr;}
-  .contact{padding:70px 24px;}
-  footer{flex-direction:column;gap:16px;text-align:center;padding:24px;}
-}
-</style>
+    .brand img {
+      width: clamp(136px, 18vw, 210px);
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--earth);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 22px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--earth);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(82, 59, 50, 0.18);
+    }
+
+    .button-primary:hover {
+      background: #3f2e28;
+    }
+
+    .button-secondary {
+      border-color: rgba(82, 59, 50, 0.28);
+      color: var(--earth);
+      background: rgba(255, 253, 248, 0.68);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--earth);
+      background: var(--white);
+    }
+
+    .button-dark {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .hero {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      align-items: center;
+      gap: clamp(36px, 6vw, 78px);
+      padding: 74px 0 82px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--forest);
+      font-size: 0.86rem;
+      font-weight: 800;
+      margin: 0 0 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-family: "Noto Serif Hebrew", Georgia, serif;
+      color: var(--earth);
+      font-size: clamp(3.4rem, 10vw, 7.4rem);
+      line-height: 0.92;
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions, .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 42px;
+      max-width: 680px;
+    }
+
+    .note-item {
+      border-top: 1px solid rgba(82, 59, 50, 0.2);
+      padding-top: 14px;
+      color: var(--earth);
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      align-items: center;
+    }
+
+    .brand-panel {
+      background: var(--white);
+      border: 1px solid rgba(82, 59, 50, 0.13);
+      border-radius: 8px;
+      padding: clamp(26px, 4vw, 42px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-panel::before {
+      content: "";
+      display: block;
+      height: 8px;
+      width: 100%;
+      margin-bottom: 34px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--earth), var(--forest), var(--clay), var(--leaf));
+    }
+
+    .brand-panel img {
+      width: 100%;
+      margin: 0 auto 32px;
+    }
+
+    .collection-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .collection-mini span {
+      border: 1px solid rgba(82, 59, 50, 0.14);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--earth);
+      background: var(--paper);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    section {
+      padding: clamp(70px, 9vw, 118px) 0;
+    }
+
+    .section-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: "Noto Serif Hebrew", Georgia, serif;
+      color: var(--earth);
+      font-size: clamp(2rem, 4.6vw, 4.2rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 0;
+    }
+
+    .catalog-strip {
+      background: var(--earth);
+      color: var(--white);
+      padding: 34px 0;
+    }
+
+    .catalog-strip .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .catalog-strip p {
+      margin: 0;
+      color: rgba(255, 253, 248, 0.78);
+      max-width: 700px;
+    }
+
+    .catalog-strip strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .collections {
+      background: var(--white);
+      border-top: 1px solid rgba(82, 59, 50, 0.1);
+      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .collection-card {
+      min-height: 250px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--paper);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .collection-card::after {
+      content: "";
+      position: absolute;
+      inset-inline-start: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 1px solid rgba(82, 59, 50, 0.16);
+      opacity: 0.7;
+    }
+
+    .collection-card h3 {
+      color: var(--earth);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .collection-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 0.98rem;
+    }
+
+    .collection-card small {
+      color: var(--forest);
+      font-weight: 800;
+    }
+
+    .summer {
+      background: #fbf3e4;
+    }
+
+    .autumn {
+      background: #f2e4da;
+    }
+
+    .spring {
+      background: #edf0e6;
+    }
+
+    .winter {
+      background: #e7edf0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .value-card {
+      border: 1px solid rgba(82, 59, 50, 0.13);
+      border-radius: 8px;
+      padding: 28px;
+      background: rgba(255, 253, 248, 0.74);
+    }
+
+    .value-card h3 {
+      color: var(--earth);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .story {
+      background:
+        linear-gradient(180deg, rgba(14, 75, 87, 0.06), rgba(14, 75, 87, 0)),
+        var(--paper);
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+      gap: clamp(32px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .story-media {
+      border-radius: 8px;
+      min-height: 430px;
+      border: 1px solid rgba(14, 75, 87, 0.18);
+      background:
+        linear-gradient(135deg, rgba(14, 75, 87, 0.09), rgba(82, 59, 50, 0.05)),
+        var(--white);
+      display: grid;
+      place-items: center;
+      padding: 52px;
+      box-shadow: var(--shadow);
+    }
+
+    .story-media img {
+      width: min(260px, 70%);
+      opacity: 0.95;
+    }
+
+    .story-text p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .catalog-section {
+      background: var(--white);
+    }
+
+    .catalog-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: clamp(26px, 5vw, 46px);
+      display: grid;
+      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(24px, 5vw, 70px);
+    }
+
+    .catalog-card img {
+      width: min(430px, 100%);
+      margin: 0 auto;
+    }
+
+    .catalog-card p {
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .contact h2,
+    .contact .eyebrow {
+      color: var(--white);
+    }
+
+    .contact .section-lead {
+      color: rgba(255, 253, 248, 0.72);
+      max-width: 740px;
+    }
+
+    .contact .button-secondary {
+      color: var(--white);
+      border-color: rgba(255, 253, 248, 0.36);
+      background: transparent;
+    }
+
+    .contact .button-secondary:hover {
+      background: rgba(255, 253, 248, 0.1);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 253, 248, 0.11);
+      background: #241a16;
+      color: rgba(255, 253, 248, 0.62);
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .footer-inner img {
+      width: 120px;
+      filter: brightness(0) invert(1);
+      opacity: 0.78;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 253, 248, 0.7);
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .story-layout,
+      .catalog-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 0;
+        padding-top: 48px;
+      }
+
+      .hero-visual {
+        min-height: 0;
+      }
+
+      .collection-grid,
+      .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .brand img {
+        width: 138px;
+      }
+
+      .hero,
+      .section-inner,
+      .footer-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero-note,
+      .collection-grid,
+      .values-grid,
+      .collection-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog-strip .section-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .story-media {
+        min-height: 300px;
+        padding: 34px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">
-    <div class="nav-logo-mark"><span></span><span></span></div>
-    <span class="nav-logo-name">אדמא</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#story">הסיפור שלנו</a></li>
-    <li><a href="#products">מוצרים</a></li>
-    <li><a href="#values">הערכים</a></li>
-    <li><a href="#contact">יצירת קשר</a></li>
-  </ul>
-  <a href="https://wa.me/972548858424" target="_blank" class="nav-wa">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    WhatsApp
-  </a>
-</nav>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-text">
-    <div class="hero-eyebrow">אדמות סובב ירושלים</div>
-    <h1 class="hero-h1">אדמא</h1>
-    <div class="hero-sub">סבון • טבעי • עונתי • תוצרת הארץ</div>
-    <p class="hero-desc">חיבור מחודש בין הגוף, הנפש והאדמה. מוצרי טיפוח טבעיים מחומרי גלם שגדלים ישירות באדמות סובב ירושלים.</p>
-    <div class="hero-cta">
-      <a href="#products" class="btn-primary">לקטלוג המוצרים</a>
-      <a href="#story" class="btn-ghost">הסיפור שלנו</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-orb">
-      <div class="hero-orb-text">
-        <div class="hero-orb-big">אדמא</div>
-        <div class="hero-badges">
-          <span class="hero-badge">☀️ קיץ</span>
-          <span class="hero-badge">🍂 סתיו</span>
-          <span class="hero-badge">❄️ חורף</span>
-          <span class="hero-badge">🌸 אביב</span>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="ניווט ראשי">
+        <a class="brand" href="#top" aria-label="אדמא - מעבר לתחילת העמוד">
+          <img src="assets/images/adma-logo-brown.png" alt="לוגו אדמא - סבון טבעי עונתי">
+        </a>
+        <div class="nav-links" aria-label="קישורי ניווט">
+          <a href="#collections">קולקציות</a>
+          <a href="#story">הסיפור</a>
+          <a href="#catalog">קטלוג</a>
+          <a href="#contact">יצירת קשר</a>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>גלול</span>
-  </div>
-</section>
+        <a class="button button-dark" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
+      </nav>
+    </header>
 
-<!-- STORY -->
-<section class="story" id="story">
-  <div class="story-inner">
-    <div class="reveal">
-      <div class="section-label">הסיפור שלנו</div>
-      <h2 class="section-title">מהאדמה<br><em>לעור</em></h2>
-      <div class="story-body">
-        <p>אדמא נולדה מתוך חיבור מחודש בין הגוף, הנפש והאדמה. אחרי שחוויתי מחלה וחיפוש אחר ריפוי אמיתי, הבנתי שהעור שלנו נושם ולומד מה שאנחנו מזינים בו — בדיוק כמו האדמה.</p>
-        <p>מאז 2022 אני פועלת כאשת אדמה ויוצרת סבונים טבעיים, קרמים ושמנים מחומרי גלם שאני מגדלת בעצמי. כל מוצר נושא איתו את עונות השנה, את הריח, המרקם והידע הקדום של הטבע.</p>
-        <p>באדמא אני מאמינה שטיפוח הוא לא רק אסתטיקה — הוא בחירה מודעת, חיבור לשורש, ולאדמה שממנה צומחים חיים.</p>
-      </div>
-    </div>
-    <div class="story-cards reveal reveal-delay-2">
-      <div class="story-card">
-        <div class="story-card-icon">🌿</div>
-        <h4>100% טבעי</h4>
-        <p>חומרים טהורים בלבד, ללא כימיקלים או חומרים מלאכותיים</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-icon">🌱</div>
-        <h4>גידול עצמי</h4>
-        <p>מהאדמה שלנו ישירות לעור שלך, מסלול קצר ומודע</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-icon">🍃</div>
-        <h4>עונתי</h4>
-        <p>כל קולקציה נוצרת בהרמוניה עם הטבע ועם העונה</p>
-      </div>
-      <div class="story-card">
-        <div class="story-card-icon">✋</div>
-        <h4>עבודת יד</h4>
-        <p>כל מוצר נוצר בידיים עם תשומת לב מלאה לפרטים</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="products-inner">
-    <div class="products-header reveal">
-      <div class="section-label">הקטלוג שלנו</div>
-      <h2 class="section-title">המוצרים</h2>
-    </div>
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">הכל</button>
-      <button class="filter-btn" data-filter="summer">☀️ קיץ</button>
-      <button class="filter-btn" data-filter="autumn">🍂 סתיו</button>
-      <button class="filter-btn" data-filter="winter">❄️ חורף</button>
-      <button class="filter-btn" data-filter="spring">🌸 אביב</button>
-    </div>
-    <div class="products-grid" id="productsGrid">
-
-      <!-- מוצר 1 -->
-      <div class="product-card reveal" data-season="summer">
-        <div class="product-img" style="background:#FFF8EC;">
-          <span class="product-img-placeholder">🌻</span>
-          <span class="season-tag tag-summer">☀️ קיץ</span>
-        </div>
-        <div class="product-body">
-          <div class="product-name">סבון לבנדר וקמומיל</div>
-          <div class="product-desc">סבון מרגיע עם שמנים אתריים טבעיים, מושלם לעור רגיש ויבש</div>
-          <div class="product-foot">
-            <span class="product-price">₪45</span>
-            <a href="https://wa.me/972548858424?text=היי, אני מעוניינת לשמוע על סבון לבנדר וקמומיל" target="_blank" class="wa-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              להזמנה
-            </a>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">תוצרת הארץ</p>
+          <h1 id="hero-title">אדמא</h1>
+          <p class="hero-copy">סבון טבעי עונתי בשפה נקיה, אדמתית ואישית. אדמא בנויה סביב קולקציות שמתחלפות עם השנה ומביאות אל שגרת הטיפוח מגע שקט, חם ומקומי.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
+            <a class="button button-secondary" href="https://wa.me/972548858424" target="_blank" rel="noopener">דברו איתי</a>
+          </div>
+          <div class="hero-note" aria-label="עיקרי המותג">
+            <div class="note-item">סבון טבעי</div>
+            <div class="note-item">עונתי</div>
+            <div class="note-item">תוצרת הארץ</div>
           </div>
         </div>
-      </div>
 
-      <!-- מוצר 2 -->
-      <div class="product-card reveal reveal-delay-1" data-season="autumn">
-        <div class="product-img" style="background:#FDF0E8;">
-          <span class="product-img-placeholder">🍯</span>
-          <span class="season-tag tag-autumn">🍂 סתיו</span>
-        </div>
-        <div class="product-body">
-          <div class="product-name">קרם דבש ושקדים</div>
-          <div class="product-desc">קרם מזין ועשיר לעונות הקור, מועשר בדבש טבעי ושמן שקדים מתוצרת הבית</div>
-          <div class="product-foot">
-            <span class="product-price">₪65</span>
-            <a href="https://wa.me/972548858424?text=היי, אני מעוניינת לשמוע על קרם דבש ושקדים" target="_blank" class="wa-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              להזמנה
-            </a>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="brand-panel">
+            <img src="assets/images/adma-emblem-teal.png" alt="">
+            <div class="collection-mini">
+              <span>קולקציית קיץ</span>
+              <span>קולקציית סתיו</span>
+              <span>קולקציית אביב</span>
+              <span>קולקציית חורף</span>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- מוצר 3 -->
-      <div class="product-card reveal reveal-delay-2" data-season="winter">
-        <div class="product-img" style="background:#EFF4FA;">
-          <span class="product-img-placeholder">🌲</span>
-          <span class="season-tag tag-winter">❄️ חורף</span>
-        </div>
-        <div class="product-body">
-          <div class="product-name">שמן אקליפטוס ורוזמרין</div>
-          <div class="product-desc">שמן טיפולי לחורף, מחמם ומרגיע, מבוסס על צמחים שגדלים בגינה</div>
-          <div class="product-foot">
-            <span class="product-price">₪55</span>
-            <a href="https://wa.me/972548858424?text=היי, אני מעוניינת לשמוע על שמן אקליפטוס ורוזמרין" target="_blank" class="wa-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              להזמנה
-            </a>
+      <aside class="catalog-strip" aria-label="קישור מהיר לקטלוג">
+        <div class="section-inner">
+          <p><strong>הקטלוג הפעיל נמצא ב־WhatsApp</strong> הברנדבוק משמש כאן כמקור לשפת המותג, לצבעים ולאווירה. להזמנות ושאלות פותחים את קטלוג WhatsApp של אדמא.</p>
+          <div class="cta-actions">
+            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
+            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
           </div>
         </div>
-      </div>
+      </aside>
 
-      <!-- מוצר 4 -->
-      <div class="product-card reveal" data-season="spring">
-        <div class="product-img" style="background:#EFF8EA;">
-          <span class="product-img-placeholder">🌺</span>
-          <span class="season-tag tag-spring">🌸 אביב</span>
-        </div>
-        <div class="product-body">
-          <div class="product-name">סבון ורדים וגרניום</div>
-          <div class="product-desc">סבון מבושם בניחוחות האביב, מעניק לחות ורכות לעור כל היום</div>
-          <div class="product-foot">
-            <span class="product-price">₪45</span>
-            <a href="https://wa.me/972548858424?text=היי, אני מעוניינת לשמוע על סבון ורדים וגרניום" target="_blank" class="wa-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              להזמנה
-            </a>
+      <section class="collections" id="collections" aria-labelledby="collections-title">
+        <div class="section-inner">
+          <div class="section-head center">
+            <p class="eyebrow">הקולקציות</p>
+            <h2 id="collections-title">עונות השנה של אדמא</h2>
+            <p class="section-lead">בברנדבוק מופיעות ארבע קולקציות עונתיות. לפרטי מוצרים, זמינות ומחירים, קטלוג WhatsApp הוא המקום המעודכן להזמנות ושאלות.</p>
+          </div>
+
+          <div class="collection-grid">
+            <article class="collection-card summer">
+              <div>
+                <small>קולקציה עונתית</small>
+                <h3>קיץ</h3>
+              </div>
+              <p>קולקציית קיץ כפי שמופיעה בשפת המותג של אדמא.</p>
+            </article>
+
+            <article class="collection-card autumn">
+              <div>
+                <small>קולקציה עונתית</small>
+                <h3>סתיו</h3>
+              </div>
+              <p>קולקציית סתיו מתוך הברנדבוק והמערכת העונתית של המותג.</p>
+            </article>
+
+            <article class="collection-card spring">
+              <div>
+                <small>קולקציה עונתית</small>
+                <h3>אביב</h3>
+              </div>
+              <p>קולקציית אביב כחלק מהחלוקה העונתית הרשמית של אדמא.</p>
+            </article>
+
+            <article class="collection-card winter">
+              <div>
+                <small>קולקציה עונתית</small>
+                <h3>חורף</h3>
+              </div>
+              <p>קולקציית חורף כפי שמופיעה בברנדבוק המותג.</p>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
+      <section aria-labelledby="values-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="eyebrow">שפת המותג</p>
+            <h2 id="values-title">נקי, טבעי, קרוב לאדמה</h2>
+            <p class="section-lead">העיצוב החדש נשען על הלוגו, הצבעים והקולקציות שהופיעו בקובץ המותג: חום אדמה, ירוק עמוק, מרווח נשימה וטיפוגרפיה עברית שקטה.</p>
+          </div>
+
+          <div class="values-grid">
+            <article class="value-card">
+              <h3>סבון טבעי עונתי</h3>
+              <p>זהו משפט הליבה שמופיע בלוגו ובברנדבוק, ולכן הוא מוביל את האתר.</p>
+            </article>
+            <article class="value-card">
+              <h3>תוצרת הארץ</h3>
+              <p>חלק בלתי נפרד מהלוגו ומהנוכחות של המותג.</p>
+            </article>
+            <article class="value-card">
+              <h3>קולקציות לפי עונה</h3>
+              <p>קיץ, סתיו, אביב וחורף מופיעות כחלוקה הרשמית בברנדבוק.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="section-inner story-layout">
+          <div class="story-media">
+            <!-- Founder photo was provided in chat but not available as a filesystem asset in this environment. -->
+            <img src="assets/images/adma-emblem-teal.png" alt="סמל אדמא מתוך הברנדבוק">
+          </div>
+
+          <div class="story-text">
+            <p class="eyebrow">מי עומדת מאחורי ADMA</p>
+            <h2 id="story-title">מותג קטן עם מגע אישי</h2>
+            <p>אדמא מרגישה כמו מותג שנולד מקרבה לחומר, לעונה ולשגרת טיפוח יומיומית. לכן העמוד החדש נותן מקום לשקט, למגע הידני ולזהות הישראלית של המותג.</p>
+            <p>המטרה היא אתר שמרגיש אישי בלי להעמיס: מעט מילים, הרבה אוויר, והזמנה פשוטה להכיר את הקולקציות דרך קטלוג WhatsApp.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-inner">
+          <div class="catalog-card">
+            <img src="assets/images/adma-logo-teal.png" alt="לוגו אדמא בצבע ירוק עמוק מתוך הברנדבוק">
+            <div>
+              <p class="eyebrow">ברנדבוק וקטלוג</p>
+              <h2 id="catalog-title">שפת המותג וקטלוג WhatsApp</h2>
+              <p>ה־PDF משמש כברנדבוק: מקור השראה לצבעים, ללוגו, לקולקציות העונתיות ולשפה העיצובית. הקטלוג הפעיל למוצרים ולהזמנות נמצא ב־WhatsApp.</p>
+              <div class="cta-actions">
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
+                <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחה ב-WhatsApp</a>
+                <a class="button button-secondary" href="assets/catalog/adma-brandbook.pdf">צפייה בברנדבוק</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="eyebrow">להזמנות ושאלות</p>
+            <h2 id="contact-title">רוצה לדבר על המוצרים?</h2>
+            <p class="section-lead">אפשר לפתוח את הקטלוג ב־WhatsApp או לשלוח הודעה ישירה. לכל שאלה על זמינות, התאמה או הזמנה - אני כאן.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary" href="https://wa.me/972548858424" target="_blank" rel="noopener">דברו איתי</a>
+            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <img src="assets/images/adma-logo-brown.png" alt="אדמא">
+        <span>© 2026 אדמא. כל הזכויות שמורות.</span>
+        <div class="footer-links">
+          <a href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג</a>
+          <a href="assets/catalog/adma-brandbook.pdf">ברנדבוק</a>
+          <a href="https://wa.me/c/972548858424" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
   </div>
-</section>
-
-<!-- VALUES -->
-<section class="values" id="values">
-  <div class="values-inner">
-    <div class="values-header reveal">
-      <div class="section-label">מה מנחה אותנו</div>
-      <h2 class="section-title" style="color:#fff;">הערכים שלנו</h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-card reveal">
-        <div class="value-icon">🌍</div>
-        <h3>קיימות</h3>
-        <p>שמירה על הסביבה ושימוש בחומרים מתכלים וידידותיים לטבע</p>
-      </div>
-      <div class="value-card reveal reveal-delay-1">
-        <div class="value-icon">✋</div>
-        <h3>עבודת יד</h3>
-        <p>כל מוצר נוצר בעבודת יד עם תשומת לב מלאה לפרטים הקטנים</p>
-      </div>
-      <div class="value-card reveal reveal-delay-2">
-        <div class="value-icon">🌾</div>
-        <h3>מקומיות</h3>
-        <p>גידול וייצור מקומי — מהאדמות שלנו ישירות אליך</p>
-      </div>
-      <div class="value-card reveal reveal-delay-3">
-        <div class="value-icon">💚</div>
-        <h3>אותנטיות</h3>
-        <p>שקיפות מלאה בתהליכי הייצור ובכל אחד מהרכיבים</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="section-label">בואו נדבר</div>
-    <h2 class="section-title reveal">רוצה לדעת עוד?</h2>
-    <p class="contact-desc reveal">נשמח לענות על כל שאלה, לספר על המוצרים ולהתאים לך בדיוק את מה שמתאים</p>
-    <div class="contact-btns reveal">
-      <a href="https://wa.me/c/972548858424" target="_blank" class="contact-btn contact-btn-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        שלחי הודעה בוואטסאפ
-      </a>
-      <a href="https://wa.me/c/972548858424" target="_blank" class="contact-btn contact-btn-outline">הקטלוג המלא</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">אדמא</span>
-  <span>© 2025 כל הזכויות שמורות</span>
-  <div class="footer-links">
-    <a href="https://wa.me/c/972548858424" target="_blank">WhatsApp</a>
-    <a href="#products">מוצרים</a>
-    <a href="#story">הסיפור</a>
-  </div>
-</footer>
-
-<script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Reveal on scroll
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.15 });
-reveals.forEach(r => observer.observe(r));
-
-// Filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.classList.toggle('hidden', filter !== 'all' && card.dataset.season !== filter);
-    });
-  });
-});
-</script>
 </body>
 </html>
