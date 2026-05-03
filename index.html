@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>אדמא | סבון טבעי עונתי מתוצרת הארץ</title>
-  <meta name="description" content="אדמא - סבון טבעי עונתי מתוצרת הארץ. קולקציות עונתיות, ברנדבוק ושפת מותג לצד קטלוג WhatsApp להזמנות.">
+  <meta name="description" content="אדמא - סבונים טבעיים, שמפו מוצק ומארזים עונתיים בעבודת יד. להזמנה ושאלות דרך WhatsApp.">
   <meta property="og:title" content="אדמא | סבון טבעי עונתי">
-  <meta property="og:description" content="אתר המותג של אדמא - סבון טבעי עונתי מתוצרת הארץ.">
+  <meta property="og:description" content="סבונים טבעיים, שמפו מוצק ומארזים עונתיים בעבודת יד.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://admasoaps.com/">
   <meta property="og:image" content="assets/images/adma-logo-brown.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Noto+Serif+Hebrew:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&amp;family=Noto+Serif+Hebrew:wght@500;700&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -20,18 +20,19 @@
 
     :root {
       --earth: #523b32;
-      --earth-soft: #7b6258;
+      --earth-soft: #745f55;
       --forest: #0e4b57;
-      --leaf: #677761;
+      --leaf: #687b63;
       --clay: #a36f4d;
       --sand: #ded2c3;
       --paper: #fbf8f3;
-      --wash: #f3ece3;
+      --wash: #f2ece5;
+      --mint: #e8eee7;
       --ink: #2b231f;
       --muted: #756a62;
       --line: #ded2c6;
       --white: #fffdf8;
-      --shadow: 0 18px 50px rgba(61, 43, 35, 0.11);
+      --shadow: 0 18px 48px rgba(61, 43, 35, 0.1);
     }
 
     html {
@@ -43,13 +44,17 @@
       font-family: "Heebo", Arial, sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.7;
+      line-height: 1.65;
       overflow-x: hidden;
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
+    }
+
+    figure {
+      margin: 0;
     }
 
     a {
@@ -59,7 +64,7 @@
     .site-shell {
       min-height: 100vh;
       background:
-        linear-gradient(90deg, rgba(82, 59, 50, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82, 59, 50, 0.035) 1px, transparent 1px),
         linear-gradient(0deg, rgba(82, 59, 50, 0.03) 1px, transparent 1px),
         var(--paper);
       background-size: 44px 44px;
@@ -70,14 +75,15 @@
       top: 0;
       z-index: 20;
       border-bottom: 1px solid rgba(82, 59, 50, 0.12);
-      background: rgba(251, 248, 243, 0.91);
+      background: rgba(251, 248, 243, 0.94);
       backdrop-filter: blur(18px);
     }
 
     .nav {
-      width: min(1180px, calc(100% - 36px));
-      margin: 0 auto;
+      width: calc(100% - 40px);
+      max-width: 1120px;
       min-height: 76px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -87,12 +93,12 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
+      flex: 0 0 auto;
       text-decoration: none;
     }
 
     .brand img {
-      width: clamp(136px, 18vw, 210px);
+      width: 190px;
       height: auto;
     }
 
@@ -100,8 +106,9 @@
       display: flex;
       align-items: center;
       gap: 26px;
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
     }
 
     .nav-links a {
@@ -121,11 +128,11 @@
       padding: 11px 22px;
       border: 1px solid transparent;
       border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
+      font-weight: 800;
       line-height: 1.2;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      text-decoration: none;
       white-space: nowrap;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
     }
 
     .button:hover {
@@ -133,8 +140,8 @@
     }
 
     .button-primary {
-      background: var(--earth);
       color: var(--white);
+      background: var(--earth);
       box-shadow: 0 10px 24px rgba(82, 59, 50, 0.18);
     }
 
@@ -143,9 +150,9 @@
     }
 
     .button-secondary {
-      border-color: rgba(82, 59, 50, 0.28);
       color: var(--earth);
-      background: rgba(255, 253, 248, 0.68);
+      border-color: rgba(82, 59, 50, 0.28);
+      background: rgba(255, 253, 248, 0.72);
     }
 
     .button-secondary:hover {
@@ -154,29 +161,30 @@
     }
 
     .button-dark {
-      background: var(--forest);
       color: var(--white);
+      background: var(--forest);
     }
 
     .hero {
-      width: min(1180px, calc(100% - 36px));
-      margin: 0 auto;
+      width: calc(100% - 40px);
+      max-width: 1120px;
       min-height: calc(100vh - 76px);
+      margin: 0 auto;
+      padding: 72px 0 88px;
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.78fr);
+      grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.8fr);
       align-items: center;
-      gap: clamp(36px, 6vw, 78px);
-      padding: 74px 0 82px;
+      gap: 70px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      margin: 0 0 18px;
       color: var(--forest);
       font-size: 0.86rem;
       font-weight: 800;
-      margin: 0 0 18px;
     }
 
     .eyebrow::before {
@@ -191,380 +199,132 @@
     }
 
     h1 {
-      font-family: "Noto Serif Hebrew", Georgia, serif;
-      color: var(--earth);
-      font-size: clamp(3.4rem, 10vw, 7.4rem);
-      line-height: 0.92;
       margin-bottom: 22px;
+      color: var(--earth);
+      font-family: "Noto Serif Hebrew", Georgia, serif;
+      font-size: 5.8rem;
       font-weight: 700;
+      line-height: 0.95;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: var(--earth);
+      font-family: "Noto Serif Hebrew", Georgia, serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.08;
     }
 
     .hero-copy {
-      max-width: 650px;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      max-width: 640px;
       margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 1.22rem;
     }
 
-    .hero-actions, .cta-actions {
+    .hero-actions,
+    .cta-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
       align-items: center;
+      gap: 12px;
     }
 
     .hero-note {
+      max-width: 680px;
+      margin-top: 42px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 42px;
-      max-width: 680px;
     }
 
     .note-item {
-      border-top: 1px solid rgba(82, 59, 50, 0.2);
+      min-height: 62px;
       padding-top: 14px;
+      border-top: 1px solid rgba(82, 59, 50, 0.22);
       color: var(--earth);
-      font-weight: 700;
       font-size: 0.98rem;
+      font-weight: 800;
     }
 
     .hero-visual {
-      position: relative;
-      min-height: 500px;
-      display: grid;
-      align-items: center;
-    }
-
-    .brand-panel {
-      background: var(--white);
+      align-self: stretch;
+      min-height: 560px;
       border: 1px solid rgba(82, 59, 50, 0.13);
       border-radius: 8px;
-      padding: clamp(26px, 4vw, 42px);
+      overflow: hidden;
+      background: var(--white);
       box-shadow: var(--shadow);
+      position: relative;
     }
 
-    .brand-panel::before {
-      content: "";
-      display: block;
-      height: 8px;
+    .hero-visual img {
       width: 100%;
-      margin-bottom: 34px;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-visual figcaption {
+      position: absolute;
+      inset-inline: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
+      border: 1px solid rgba(82, 59, 50, 0.1);
       border-radius: 8px;
-      background: linear-gradient(90deg, var(--earth), var(--forest), var(--clay), var(--leaf));
-    }
-
-    .brand-panel img {
-      width: 100%;
-      margin: 0 auto 32px;
-    }
-
-    .collection-mini {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .collection-mini span {
-      border: 1px solid rgba(82, 59, 50, 0.14);
-      border-radius: 8px;
-      padding: 10px 12px;
       color: var(--earth);
-      background: var(--paper);
-      font-weight: 700;
-      text-align: center;
+      background: rgba(255, 253, 248, 0.9);
+      font-weight: 800;
     }
 
     section {
-      padding: clamp(70px, 9vw, 118px) 0;
+      padding: 92px 0;
+      scroll-margin-top: 90px;
     }
 
     .section-inner {
-      width: min(1180px, calc(100% - 36px));
+      width: calc(100% - 40px);
+      max-width: 1120px;
       margin: 0 auto;
     }
 
     .section-head {
       max-width: 760px;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
     }
 
     .section-head.center {
-      margin-left: auto;
-      margin-right: auto;
+      margin-inline: auto;
       text-align: center;
     }
 
-    h2 {
-      font-family: "Noto Serif Hebrew", Georgia, serif;
-      color: var(--earth);
-      font-size: clamp(2rem, 4.6vw, 4.2rem);
-      line-height: 1.08;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
     .section-lead {
+      margin-bottom: 0;
       color: var(--muted);
       font-size: 1.08rem;
-      margin-bottom: 0;
-    }
-
-    .catalog-strip {
-      background: var(--earth);
-      color: var(--white);
-      padding: 34px 0;
-    }
-
-    .catalog-strip .section-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .catalog-strip p {
-      margin: 0;
-      color: rgba(255, 253, 248, 0.78);
-      max-width: 700px;
-    }
-
-    .catalog-strip strong {
-      display: block;
-      color: var(--white);
-      font-size: 1.3rem;
-      margin-bottom: 4px;
-    }
-
-    .product-catalog {
-      background:
-        linear-gradient(180deg, rgba(82, 59, 50, 0.04), rgba(14, 75, 87, 0.04)),
-        var(--paper);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .product-card {
-      min-height: 100%;
-      border: 1px solid rgba(82, 59, 50, 0.14);
-      border-radius: 8px;
-      background: var(--white);
-      overflow: hidden;
-      box-shadow: 0 14px 34px rgba(61, 43, 35, 0.08);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-visual {
-      aspect-ratio: 4 / 3;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(82, 59, 50, 0.08), rgba(14, 75, 87, 0.08)),
-        var(--wash);
-      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
-    }
-
-    .product-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0.98;
-    }
-
-    .product-body {
-      padding: 22px;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .product-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--forest);
-      font-size: 0.84rem;
-      font-weight: 800;
-    }
-
-    .product-status {
-      border: 1px solid rgba(14, 75, 87, 0.18);
-      border-radius: 999px;
-      padding: 4px 10px;
-      color: var(--forest);
-      background: rgba(14, 75, 87, 0.07);
-      white-space: nowrap;
-    }
-
-    .product-card h3 {
-      color: var(--earth);
-      font-size: 1.28rem;
-      line-height: 1.25;
-      margin-bottom: 0;
-    }
-
-    .product-card p {
-      color: var(--muted);
-      margin-bottom: 0;
-      font-size: 0.98rem;
-    }
-
-    .product-details {
-      display: grid;
-      gap: 7px;
-      margin: 4px 0 0;
-      padding: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .product-details div {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      border-top: 1px solid rgba(82, 59, 50, 0.1);
-      padding-top: 7px;
-    }
-
-    .product-details dt {
-      color: var(--earth);
-      font-weight: 800;
-    }
-
-    .product-details dd {
-      margin: 0;
-      text-align: left;
-    }
-
-    .product-card .button {
-      margin-top: auto;
-      width: 100%;
-    }
-
-    .collections {
-      background: var(--white);
-      border-top: 1px solid rgba(82, 59, 50, 0.1);
-      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
-    }
-
-    .collection-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .collection-card {
-      min-height: 250px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: var(--paper);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .collection-card::after {
-      content: "";
-      position: absolute;
-      inset-inline-start: 18px;
-      bottom: 18px;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 1px solid rgba(82, 59, 50, 0.16);
-      opacity: 0.7;
-    }
-
-    .collection-card h3 {
-      color: var(--earth);
-      font-size: 1.45rem;
-      margin-bottom: 8px;
-    }
-
-    .collection-card p {
-      color: var(--muted);
-      margin-bottom: 0;
-      font-size: 0.98rem;
-    }
-
-    .collection-card small {
-      color: var(--forest);
-      font-weight: 800;
-    }
-
-    .summer {
-      background: #fbf3e4;
-    }
-
-    .autumn {
-      background: #f2e4da;
-    }
-
-    .spring {
-      background: #edf0e6;
-    }
-
-    .winter {
-      background: #e7edf0;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .value-card {
-      border: 1px solid rgba(82, 59, 50, 0.13);
-      border-radius: 8px;
-      padding: 28px;
-      background: rgba(255, 253, 248, 0.74);
-    }
-
-    .value-card h3 {
-      color: var(--earth);
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
-
-    .value-card p {
-      color: var(--muted);
-      margin-bottom: 0;
     }
 
     .story {
       background:
-        linear-gradient(180deg, rgba(14, 75, 87, 0.06), rgba(14, 75, 87, 0)),
+        linear-gradient(180deg, rgba(14, 75, 87, 0.055), rgba(14, 75, 87, 0)),
         var(--paper);
     }
 
     .story-layout {
       display: grid;
-      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
-      gap: clamp(32px, 6vw, 76px);
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+      gap: 70px;
       align-items: center;
     }
 
     .story-media {
-      border-radius: 8px;
       min-height: 430px;
       border: 1px solid rgba(14, 75, 87, 0.18);
-      background:
-        linear-gradient(135deg, rgba(14, 75, 87, 0.09), rgba(82, 59, 50, 0.05)),
-        var(--white);
+      border-radius: 8px;
       overflow: hidden;
+      background: var(--white);
       box-shadow: var(--shadow);
     }
 
@@ -572,7 +332,6 @@
       width: 100%;
       height: 100%;
       min-height: 430px;
-      display: block;
       object-fit: cover;
       object-position: center;
     }
@@ -586,28 +345,273 @@
       margin-bottom: 0;
     }
 
-    .catalog-section {
+    .product-catalog {
+      border-top: 1px solid rgba(82, 59, 50, 0.1);
+      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
+      background:
+        linear-gradient(180deg, rgba(82, 59, 50, 0.04), rgba(14, 75, 87, 0.045)),
+        var(--paper);
+    }
+
+    .product-summary {
+      margin: 0 0 22px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-tile {
+      min-height: 128px;
+      padding: 18px;
+      border: 1px solid rgba(82, 59, 50, 0.13);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      background: rgba(255, 253, 248, 0.78);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .summary-tile:hover {
+      transform: translateY(-2px);
+      border-color: rgba(14, 75, 87, 0.34);
       background: var(--white);
     }
 
-    .catalog-card {
+    .summary-tile strong {
+      color: var(--earth);
+      font-size: 1.15rem;
+    }
+
+    .summary-tile span {
+      color: var(--forest);
+      font-weight: 800;
+    }
+
+    .summary-tile small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .product-groups {
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-group {
+      border: 1px solid rgba(82, 59, 50, 0.14);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 10px 26px rgba(61, 43, 35, 0.065);
+    }
+
+    .product-group summary {
+      min-height: 74px;
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      align-items: center;
+      gap: 18px;
+      color: var(--earth);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .product-group summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .product-group summary::after {
+      content: "+";
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(14, 75, 87, 0.2);
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--forest);
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .product-group[open] summary::after {
+      content: "-";
+    }
+
+    .product-group-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .product-group-title strong {
+      font-size: 1.24rem;
+    }
+
+    .product-group-title small,
+    .product-count {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .product-count {
+      white-space: nowrap;
+    }
+
+    .product-list {
+      padding: 0 18px 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .product-row {
+      min-height: 154px;
+      padding: 16px;
+      border: 1px solid rgba(82, 59, 50, 0.1);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(251, 248, 243, 0.72);
+    }
+
+    .product-row-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-row h3 {
+      margin-bottom: 0;
+      color: var(--earth);
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+
+    .product-row p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .price {
+      flex: 0 0 auto;
+      border: 1px solid rgba(14, 75, 87, 0.18);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--forest);
+      background: rgba(14, 75, 87, 0.07);
+      font-size: 0.84rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .product-link {
+      width: fit-content;
+      margin-top: auto;
+      color: var(--earth);
+      font-size: 0.94rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(82, 59, 50, 0.38);
+    }
+
+    .product-link:hover {
+      border-color: var(--earth);
+    }
+
+    .season-grid,
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .season-card,
+    .value-card {
+      min-height: 214px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--paper);
-      padding: clamp(26px, 5vw, 46px);
-      display: grid;
-      grid-template-columns: minmax(0, 0.76fr) minmax(0, 1fr);
-      align-items: center;
-      gap: clamp(24px, 5vw, 70px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--white);
     }
 
-    .catalog-card img {
-      width: min(430px, 100%);
-      margin: 0 auto;
+    .season-card h3,
+    .value-card h3 {
+      margin-bottom: 8px;
+      color: var(--earth);
+      font-size: 1.35rem;
     }
 
-    .catalog-card p {
+    .season-card p,
+    .value-card p {
+      margin-bottom: 0;
       color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .season-card small {
+      color: var(--forest);
+      font-weight: 800;
+    }
+
+    .summer {
+      background: #fbf3e4;
+    }
+
+    .autumn {
+      background: #f2e4da;
+    }
+
+    .spring {
+      background: var(--mint);
+    }
+
+    .winter {
+      background: #e7edf0;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .value-card {
+      min-height: 180px;
+      background: rgba(255, 253, 248, 0.76);
+    }
+
+    .order-strip {
+      background: var(--earth);
+      color: var(--white);
+      padding: 42px 0;
+    }
+
+    .order-strip .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .order-strip p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 253, 248, 0.78);
+    }
+
+    .order-strip strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--white);
+      font-size: 1.32rem;
     }
 
     .contact {
@@ -621,29 +625,32 @@
     }
 
     .contact .section-lead {
-      color: rgba(255, 253, 248, 0.72);
       max-width: 740px;
+      color: rgba(255, 253, 248, 0.75);
     }
 
-    .contact .button-secondary {
+    .contact .button-secondary,
+    .order-strip .button-secondary {
       color: var(--white);
       border-color: rgba(255, 253, 248, 0.36);
       background: transparent;
     }
 
-    .contact .button-secondary:hover {
+    .contact .button-secondary:hover,
+    .order-strip .button-secondary:hover {
       background: rgba(255, 253, 248, 0.1);
     }
 
     footer {
+      padding: 28px 0;
       border-top: 1px solid rgba(255, 253, 248, 0.11);
       background: #241a16;
       color: rgba(255, 253, 248, 0.62);
-      padding: 28px 0;
     }
 
     .footer-inner {
-      width: min(1180px, calc(100% - 36px));
+      width: calc(100% - 40px);
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -654,8 +661,8 @@
 
     .footer-inner img {
       width: 120px;
-      filter: brightness(0) invert(1);
       opacity: 0.78;
+      filter: brightness(0) invert(1);
     }
 
     .footer-links {
@@ -664,7 +671,7 @@
     }
 
     .footer-links a {
-      color: rgba(255, 253, 248, 0.7);
+      color: rgba(255, 253, 248, 0.72);
       text-decoration: none;
     }
 
@@ -677,63 +684,69 @@
         display: none;
       }
 
+      .brand img {
+        width: 156px;
+      }
+
       .hero,
-      .story-layout,
-      .catalog-card {
+      .story-layout {
         grid-template-columns: 1fr;
+        gap: 34px;
       }
 
       .hero {
         min-height: 0;
-        padding-top: 48px;
+        padding: 48px 0 64px;
       }
 
-      .hero-visual {
-        min-height: 0;
+      h1 {
+        font-size: 4.2rem;
       }
 
-      .product-grid,
-      .collection-grid,
+      h2 {
+        font-size: 2.7rem;
+      }
+
+      .hero-copy {
+        font-size: 1.1rem;
+      }
+
+      .hero-visual,
+      .hero-visual img {
+        min-height: 360px;
+      }
+
+      .product-summary,
+      .season-grid,
       .values-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-list {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 640px) {
-      .nav {
-        width: min(100% - 28px, 1180px);
-      }
-
-      .brand img {
-        width: 138px;
-      }
-
+      .nav,
       .hero,
       .section-inner,
       .footer-inner {
-        width: min(100% - 28px, 1180px);
+        width: calc(100% - 28px);
       }
 
-      .hero-note,
-      .product-grid,
-      .collection-grid,
-      .values-grid,
-      .collection-mini {
-        grid-template-columns: 1fr;
+      .nav {
+        gap: 12px;
       }
 
-      .catalog-strip .section-inner,
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+      .brand img {
+        width: 128px;
       }
 
-      .story-media {
-        min-height: 300px;
-      }
-
-      .story-media img {
-        min-height: 300px;
+      .nav .button {
+        width: auto;
+        min-height: 42px;
+        padding: 9px 14px;
       }
 
       .button {
@@ -744,6 +757,94 @@
       .cta-actions {
         width: 100%;
       }
+
+      .hero {
+        padding: 38px 0 52px;
+      }
+
+      h1 {
+        font-size: 3.45rem;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero-note,
+      .product-summary,
+      .season-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .note-item {
+        min-height: 0;
+      }
+
+      .hero-visual,
+      .hero-visual img {
+        min-height: 300px;
+      }
+
+      .hero-visual figcaption {
+        inset-inline: 12px;
+        bottom: 12px;
+        padding: 10px 12px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .story-media,
+      .story-media img {
+        min-height: 310px;
+      }
+
+      .product-group summary {
+        min-height: 72px;
+        padding: 16px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+      }
+
+      .product-count {
+        display: none;
+      }
+
+      .product-list {
+        padding: 0 12px 12px;
+      }
+
+      .product-row {
+        min-height: 0;
+      }
+
+      .product-row-top {
+        display: grid;
+        gap: 8px;
+      }
+
+      .product-link {
+        width: 100%;
+        min-height: 38px;
+        border: 1px solid rgba(82, 59, 50, 0.24);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+      }
+
+      .order-strip .section-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
@@ -752,287 +853,395 @@
     <header class="topbar">
       <nav class="nav" aria-label="ניווט ראשי">
         <a class="brand" href="#top" aria-label="אדמא - מעבר לתחילת העמוד">
-          <img src="assets/images/adma-logo-brown.png" alt="לוגו אדמא - סבון טבעי עונתי">
+          <img src="assets/images/adma-logo-brown.png" alt="אדמא - סבון טבעי עונתי">
         </a>
         <div class="nav-links" aria-label="קישורי ניווט">
-          <a href="#products">מוצרים</a>
-          <a href="#collections">קולקציות</a>
           <a href="#story">הסיפור</a>
-          <a href="#catalog">קטלוג</a>
-          <a href="#contact">יצירת קשר</a>
+          <a href="#products">מוצרים</a>
+          <a href="#seasons">עונות</a>
+          <a href="#contact">הזמנה</a>
         </div>
-        <a class="button button-dark" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
+        <a class="button button-dark" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">תוצרת הארץ</p>
+          <p class="eyebrow">סבון טבעי בעבודת יד</p>
           <h1 id="hero-title">אדמא</h1>
-          <p class="hero-copy">סבון טבעי עונתי בשפה נקיה, אדמתית ואישית. אדמא בנויה סביב קולקציות שמתחלפות עם השנה ומביאות אל שגרת הטיפוח מגע שקט, חם ומקומי.</p>
+          <p class="hero-copy">סבונים טבעיים, שמפו מוצק ומארזים עונתיים שמביאים למקלחת ריח עדין, מרקם נעים ותחושה נקייה. בוחרים מה שמתאים, וממשיכים להזמנה קצרה ב-WhatsApp.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
-            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">דברו איתי</a>
+            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+            <a class="button button-secondary" href="#products">לראות מוצרים</a>
           </div>
-          <div class="hero-note" aria-label="עיקרי המותג">
-            <div class="note-item">סבון טבעי</div>
-            <div class="note-item">עונתי</div>
-            <div class="note-item">תוצרת הארץ</div>
+          <div class="hero-note" aria-label="עיקרי ההזמנה">
+            <div class="note-item">סבונים ושמפו מוצק</div>
+            <div class="note-item">מארזים למתנה</div>
+            <div class="note-item">זמינות בשיחה אישית</div>
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="brand-panel">
-            <img src="assets/images/adma-emblem-teal.png" alt="">
-            <div class="collection-mini">
-              <span>קולקציית קיץ</span>
-              <span>קולקציית סתיו</span>
-              <span>קולקציית אביב</span>
-              <span>קולקציית חורף</span>
+        <figure class="hero-visual" aria-label="סבון אדמא מוחזק בידיים">
+          <img src="assets/images/product-1.jpg" alt="סבון אדמא טבעי מוחזק בידיים">
+          <figcaption>סבון מוצק טבעי, עונתי וריחני</figcaption>
+        </figure>
+      </section>
+
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="section-inner story-layout">
+          <figure class="story-media">
+            <img src="assets/images/founder.jpg" alt="אור מחזיקה סבון אדמא">
+          </figure>
+
+          <div class="story-text">
+            <p class="eyebrow">נעים להכיר</p>
+            <h2 id="story-title">סבונים שנעשים לאט ובתשומת לב</h2>
+            <p>אדמא נולדה מאהבה לחומרים פשוטים, לריחות של עונות השנה ולשגרת טיפוח שלא צריכה להיות מסובכת. כל בחירה מתחילה בריח, במרקם ובשאלה מה יהיה נעים לשימוש יומיומי.</p>
+            <p>אפשר להתייעץ לפני הזמנה, לבחור מארז קטן או גדול, ולבדוק מה זמין עכשיו. אני עונה ב-WhatsApp ועוזרת לבחור משהו שמתאים באמת.</p>
+            <div class="cta-actions">
+              <a class="button button-primary" href="#products">לבחירת מוצרים</a>
+              <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">לשאלה מהירה</a>
             </div>
           </div>
         </div>
       </section>
 
-      <aside class="catalog-strip" aria-label="קישור מהיר לקטלוג">
-        <div class="section-inner">
-          <p><strong>הקטלוג הפעיל נמצא ב־WhatsApp</strong> הברנדבוק משמש כאן כמקור לשפת המותג, לצבעים ולאווירה. להזמנות ושאלות פותחים את קטלוג WhatsApp של אדמא.</p>
-          <div class="cta-actions">
-            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
-            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
-          </div>
-        </div>
-      </aside>
-
       <section class="product-catalog" id="products" aria-labelledby="products-title">
         <div class="section-inner">
           <div class="section-head">
-            <p class="eyebrow">הקטלוג שלנו</p>
-            <h2 id="products-title">מוצרי ADMA</h2>
-            <p class="section-lead">תמונות המוצרים מוצגות כאן כחלק מדף הבית. שמות מוצרים מדויקים, מחירים, רכיבים וריחות לא סופקו כמידע קריא, ולכן הפרטים המלאים נשארים בקטלוג ה־WhatsApp.</p>
+            <p class="eyebrow">מה אפשר להזמין</p>
+            <h2 id="products-title">בחירה קצרה ונוחה</h2>
+            <p class="section-lead">המוצרים מסודרים לפי סוג, עם מחיר או סטטוס קצר בכל שורה. אם משהו מסקרן אותך, לחיצה אחת פותחת את הקטלוג והשיחה ב-WhatsApp.</p>
           </div>
 
-          <!-- TODO: Add verified product names, prices, scents, ingredients and product-specific links
-               when this information is provided outside the brandbook. -->
-          <div class="product-grid">
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-1.jpg" alt="סבון ADMA בתקריב על רקע בהיר">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>סבון ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+          <div class="product-summary" aria-label="קיצורי דרך לפי סוג מוצר">
+            <a class="summary-tile" href="#soaps">
+              <strong>סבונים מוצקים</strong>
+              <small>גדלים, ריחות ורכיבים עונתיים</small>
+              <span>מ-₪29</span>
+            </a>
+            <a class="summary-tile" href="#hair">
+              <strong>שיער וטיפוח</strong>
+              <small>שמפו מוצק וסרום רוזמרין</small>
+              <span>מ-₪38</span>
+            </a>
+            <a class="summary-tile" href="#sets">
+              <strong>מארזים</strong>
+              <small>מתנות קטנות, גדולות ומרגיעות</small>
+              <span>מ-₪50</span>
+            </a>
+            <a class="summary-tile" href="#extras">
+              <strong>תוספות</strong>
+              <small>סבוניה, ליפה, נר ושפתון</small>
+              <span>מ-₪12</span>
+            </a>
+          </div>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-2.jpg" alt="סבון ADMA בידיים על רקע קיר בהיר">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>סבון ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+          <div class="product-groups">
+            <details class="product-group" id="soaps" open>
+              <summary>
+                <span class="product-group-title">
+                  <strong>סבונים מוצקים</strong>
+                  <small>לשימוש יומיומי, מתנות קטנות והיכרות עם הריחות</small>
+                </span>
+                <span class="product-count">9 אפשרויות</span>
+              </summary>
+              <div class="product-list">
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>סבון מוצק עונתי</h3>
+                    <span class="price">₪29 / ₪34 / ₪38</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+                  <p>קטן, בינוני או גדול. בחירה טובה להתחלה או לשימוש קבוע.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-3.jpg" alt="סבון ADMA מוחזק ליד הפנים">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>סבון ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>פריחת אביב</h3>
+                    <span class="price">₪38</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+                  <p>סבון עם סלק ולבנדר, בריח רך ונקי.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-4.jpg" alt="מארז ADMA עם סבון ומוצרים משלימים">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>מארז ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>גביש הארץ</h3>
+                    <span class="price">₪38</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+                  <p>סבון פחם ובוץ ים המלח, לניקוי עמוק וריח מרענן.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-5.jpg" alt="סבון ADMA מוצג ביד על רקע בהיר">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>סבון ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מוחיטו מלפפון</h3>
+                    <span class="price">אזל במלאי</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+                  <p>מלפפון וחליטת לואיזה, רענן ועדין במיוחד.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">לעדכון זמינות</a>
+                </article>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-6.jpg" alt="סבון ADMA מצולם מקרוב לצד הפנים">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>סבון ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>פרדס רימונים</h3>
+                    <span class="price">לפי זמינות</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
-                  </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
-              </div>
-            </article>
+                  <p>רימונים וורדים, עם ריח פירותי-פרחוני.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
 
-            <article class="product-card">
-              <div class="product-visual">
-                <img src="assets/images/product-7.jpg" alt="מארז ADMA מוחזק בחוץ על רקע צמחייה">
-              </div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span>מוצר ADMA</span>
-                  <span class="product-status">פרטים ב־WhatsApp</span>
-                </div>
-                <h3>מארז ADMA</h3>
-                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
-                <dl class="product-details">
-                  <div>
-                    <dt>מחיר</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>צ'אי</h3>
+                    <span class="price">לפי זמינות</span>
                   </div>
-                  <div>
-                    <dt>ריח / רכיבים</dt>
-                    <dd>בקטלוג ה־WhatsApp</dd>
+                  <p>סבון צ'אי מסאלה חמים, עם תבלינים שהושרו בשמן זית ישראלי.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>חלב ודבש</h3>
+                    <span class="price">לפי זמינות</span>
                   </div>
-                </dl>
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+                  <p>חלב שקד ושיבולת שועל, לתחושה רכה ומזינה.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>הדרים</h3>
+                    <span class="price">לפי זמינות</span>
+                  </div>
+                  <p>לימון, אשכולית ותפוז, לריח נקי ובהיר.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>שורשים</h3>
+                    <span class="price">לפי זמינות</span>
+                  </div>
+                  <p>ג'ינג'ר, כורכום וגזר, עם אופי אדמתי וחמים.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
               </div>
-            </article>
+            </details>
+
+            <details class="product-group" id="hair">
+              <summary>
+                <span class="product-group-title">
+                  <strong>שיער וטיפוח</strong>
+                  <small>שמפו מוצק וסרום לשגרה קצרה ונוחה</small>
+                </span>
+                <span class="product-count">3 אפשרויות</span>
+              </summary>
+              <div class="product-list">
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>שדות של רוזמרין</h3>
+                    <span class="price">₪38</span>
+                  </div>
+                  <p>שמפו מוצק רוזמרין, ללא SLS/SCS.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>נוגה</h3>
+                    <span class="price">לפי זמינות</span>
+                  </div>
+                  <p>שמפו סרפד מוצק, עשיר במינרלים.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>סרום רוזמרין</h3>
+                    <span class="price">₪65</span>
+                  </div>
+                  <p>סרום רוזמרין לשיער, נוח להשלמת השגרה.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+              </div>
+            </details>
+
+            <details class="product-group" id="sets">
+              <summary>
+                <span class="product-group-title">
+                  <strong>מארזים ומתנות</strong>
+                  <small>כשמתחשק לתת משהו אישי, שימושי וריחני</small>
+                </span>
+                <span class="product-count">8 אפשרויות</span>
+              </summary>
+              <div class="product-list">
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז לשיער</h3>
+                    <span class="price">₪149</span>
+                  </div>
+                  <p>מארז שמרכז כמה אפשרויות לשגרת שיער טבעית.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז הדרים</h3>
+                    <span class="price">₪119</span>
+                  </div>
+                  <p>מתנה רעננה ובהירה למי שאוהב ריחות נקיים.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז טיפוח</h3>
+                    <span class="price">₪119</span>
+                  </div>
+                  <p>בחירה מסודרת למי שרוצה להתחיל לאט ולגלות מה מתאים.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז מרגיע</h3>
+                    <span class="price">₪149</span>
+                  </div>
+                  <p>מארז שקט ונעים לערב איטי או למתנה מרגיעה.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז נר וסבון</h3>
+                    <span class="price">₪85</span>
+                  </div>
+                  <p>שילוב קטן וחמים של ריח, אור וסבון טבעי.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז מתנה קטן</h3>
+                    <span class="price">₪120</span>
+                  </div>
+                  <p>מתנה אישית, לא כבדה, שמתאימה כמעט לכל רגע.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז מתנה גדול</h3>
+                    <span class="price">₪200</span>
+                  </div>
+                  <p>מארז מלא יותר, לאירוח, חג או תודה גדולה.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>מארז דוגמיות</h3>
+                    <span class="price">₪50</span>
+                  </div>
+                  <p>דרך קלה להכיר כמה ריחות לפני שבוחרים מועדף.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+              </div>
+            </details>
+
+            <details class="product-group" id="extras">
+              <summary>
+                <span class="product-group-title">
+                  <strong>תוספות קטנות</strong>
+                  <small>פריטים משלימים למקלחת, למדף או למתנה</small>
+                </span>
+                <span class="product-count">4 אפשרויות</span>
+              </summary>
+              <div class="product-list">
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>כיס ליפה</h3>
+                    <span class="price">₪12</span>
+                  </div>
+                  <p>כיס ליפה טבעית לשימוש נוח עם סבון מוצק.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>סבוניה מעץ טבעי</h3>
+                    <span class="price">₪19</span>
+                  </div>
+                  <p>סבוניה מאווררת שעוזרת לשמור על הסבון לאורך זמן.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>נר</h3>
+                    <span class="price">₪22</span>
+                  </div>
+                  <p>נר קטן שמוסיף ריח ואווירה לצד שגרת הטיפוח.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+
+                <article class="product-row">
+                  <div class="product-row-top">
+                    <h3>שפתון</h3>
+                    <span class="price">₪15</span>
+                  </div>
+                  <p>תוספת קטנה ונגישה למארז או להזמנה קיימת.</p>
+                  <a class="product-link" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה או שאלה</a>
+                </article>
+              </div>
+            </details>
           </div>
         </div>
       </section>
 
-      <section class="collections" id="collections" aria-labelledby="collections-title">
+      <section id="seasons" aria-labelledby="seasons-title">
         <div class="section-inner">
           <div class="section-head center">
-            <p class="eyebrow">הקולקציות</p>
-            <h2 id="collections-title">עונות השנה של אדמא</h2>
-            <p class="section-lead">בברנדבוק מופיעות ארבע קולקציות עונתיות. לפרטי מוצרים, זמינות ומחירים, קטלוג WhatsApp הוא המקום המעודכן להזמנות ושאלות.</p>
+            <p class="eyebrow">לפי העונה</p>
+            <h2 id="seasons-title">ריחות שמתחלפים עם השנה</h2>
+            <p class="section-lead">לא כל דבר זמין כל הזמן, וזה חלק מהקסם. בכל עונה נכנסים צבעים, ריחות ומארזים שמתאימים למזג האוויר ולמה שמתחשק עכשיו.</p>
           </div>
 
-          <div class="collection-grid">
-            <article class="collection-card summer">
+          <div class="season-grid">
+            <article class="season-card summer">
               <div>
-                <small>קולקציה עונתית</small>
-                <h3>קיץ</h3>
+                <small>קיץ</small>
+                <h3>רענן ובהיר</h3>
               </div>
-              <p>קולקציית קיץ כפי שמופיעה בשפת המותג של אדמא.</p>
+              <p>ריחות הדריים וצמחיים, קלילים ונקיים.</p>
             </article>
 
-            <article class="collection-card autumn">
+            <article class="season-card autumn">
               <div>
-                <small>קולקציה עונתית</small>
-                <h3>סתיו</h3>
+                <small>סתיו</small>
+                <h3>חמים ומתובל</h3>
               </div>
-              <p>קולקציית סתיו מתוך הברנדבוק והמערכת העונתית של המותג.</p>
+              <p>מעבר עדין לריחות עמוקים יותר.</p>
             </article>
 
-            <article class="collection-card spring">
+            <article class="season-card spring">
               <div>
-                <small>קולקציה עונתית</small>
-                <h3>אביב</h3>
+                <small>אביב</small>
+                <h3>פרחוני ורך</h3>
               </div>
-              <p>קולקציית אביב כחלק מהחלוקה העונתית הרשמית של אדמא.</p>
+              <p>תחושה של התחלה נקייה והתחדשות.</p>
             </article>
 
-            <article class="collection-card winter">
+            <article class="season-card winter">
               <div>
-                <small>קולקציה עונתית</small>
-                <h3>חורף</h3>
+                <small>חורף</small>
+                <h3>שקט ועוטף</h3>
               </div>
-              <p>קולקציית חורף כפי שמופיעה בברנדבוק המותג.</p>
+              <p>בחירות עמוקות למקלחת איטית בסוף יום.</p>
             </article>
           </div>
         </div>
@@ -1041,71 +1250,48 @@
       <section aria-labelledby="values-title">
         <div class="section-inner">
           <div class="section-head">
-            <p class="eyebrow">שפת המותג</p>
-            <h2 id="values-title">נקי, טבעי, קרוב לאדמה</h2>
-            <p class="section-lead">העיצוב החדש נשען על הלוגו, הצבעים והקולקציות שהופיעו בקובץ המותג: חום אדמה, ירוק עמוק, מרווח נשימה וטיפוגרפיה עברית שקטה.</p>
+            <p class="eyebrow">מה חשוב לנו</p>
+            <h2 id="values-title">פשוט, טבעי ונעים לשימוש</h2>
+            <p class="section-lead">אדמא נשארת קרובה לחומר: שמנים טובים, ריחות עדינים, אריזה פשוטה ושיחה ישירה לפני שמזמינים.</p>
           </div>
 
           <div class="values-grid">
             <article class="value-card">
-              <h3>סבון טבעי עונתי</h3>
-              <p>זהו משפט הליבה שמופיע בלוגו ובברנדבוק, ולכן הוא מוביל את האתר.</p>
+              <h3>חומרים מוכרים</h3>
+              <p>שילובים של שמנים, צמחים, תבלינים ורכיבים עונתיים.</p>
             </article>
             <article class="value-card">
-              <h3>תוצרת הארץ</h3>
-              <p>חלק בלתי נפרד מהלוגו ומהנוכחות של המותג.</p>
+              <h3>בחירה ברורה</h3>
+              <p>אפשר לבחור לפי סוג מוצר, מחיר, ריח או מארז.</p>
             </article>
             <article class="value-card">
-              <h3>קולקציות לפי עונה</h3>
-              <p>קיץ, סתיו, אביב וחורף מופיעות כחלוקה הרשמית בברנדבוק.</p>
+              <h3>שיחה לפני הזמנה</h3>
+              <p>שאלות על זמינות, התאמה ומתנות נסגרות ישירות ב-WhatsApp.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="story" id="story" aria-labelledby="story-title">
-        <div class="section-inner story-layout">
-          <div class="story-media">
-            <img src="assets/images/founder.jpg" alt="אור מאחורי ADMA מחזיקה סבון אדמא בידיים">
-          </div>
-
-          <div class="story-text">
-            <p class="eyebrow">מי עומדת מאחורי ADMA</p>
-            <h2 id="story-title">מותג קטן עם מגע אישי</h2>
-            <p>אדמא מרגישה כמו מותג שנולד מקרבה לחומר, לעונה ולשגרת טיפוח יומיומית. לכן העמוד החדש נותן מקום לשקט, למגע הידני ולזהות הישראלית של המותג.</p>
-            <p>המטרה היא אתר שמרגיש אישי בלי להעמיס: מעט מילים, הרבה אוויר, והזמנה פשוטה להכיר את הקולקציות דרך קטלוג WhatsApp.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+      <aside class="order-strip" aria-label="קישור מהיר להזמנה">
         <div class="section-inner">
-          <div class="catalog-card">
-            <img src="assets/images/adma-logo-teal.png" alt="לוגו אדמא בצבע ירוק עמוק מתוך הברנדבוק">
-            <div>
-              <p class="eyebrow">ברנדבוק וקטלוג</p>
-              <h2 id="catalog-title">שפת המותג וקטלוג WhatsApp</h2>
-              <p>ה־PDF משמש כברנדבוק: מקור השראה לצבעים, ללוגו, לקולקציות העונתיות ולשפה העיצובית. הקטלוג הפעיל למוצרים ולהזמנות נמצא ב־WhatsApp.</p>
-              <div class="cta-actions">
-                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
-                <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחה ב-WhatsApp</a>
-                <a class="button button-secondary" href="assets/catalog/adma-brandbook.pdf">צפייה בברנדבוק</a>
-              </div>
-            </div>
+          <p><strong>רוצה לבחור יחד?</strong> אפשר לפתוח את WhatsApp, לראות מה זמין עכשיו, לשאול על ריח או מארז, ולהמשיך להזמנה בלי טופס ארוך.</p>
+          <div class="cta-actions">
+            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחת WhatsApp</a>
+            <a class="button button-secondary" href="#products">חזרה למוצרים</a>
           </div>
         </div>
-      </section>
+      </aside>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="section-inner">
           <div class="section-head">
             <p class="eyebrow">להזמנות ושאלות</p>
-            <h2 id="contact-title">רוצה לדבר על המוצרים?</h2>
-            <p class="section-lead">אפשר לפתוח את הקטלוג ב־WhatsApp או לשלוח הודעה ישירה. לכל שאלה על זמינות, התאמה או הזמנה - אני כאן.</p>
+            <h2 id="contact-title">אפשר פשוט לכתוב לי</h2>
+            <p class="section-lead">אני עונה ב-WhatsApp, עוזרת לבדוק מה זמין, ומכוונת למוצר או מארז שמתאים לשימוש אישי או למתנה.</p>
           </div>
           <div class="cta-actions">
             <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">דברו איתי</a>
-            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
+            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">פתיחת קטלוג</a>
           </div>
         </div>
       </section>
@@ -1116,8 +1302,8 @@
         <img src="assets/images/adma-logo-brown.png" alt="אדמא">
         <span>© 2026 אדמא. כל הזכויות שמורות.</span>
         <div class="footer-links">
-          <a href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג</a>
-          <a href="assets/catalog/adma-brandbook.pdf">ברנדבוק</a>
+          <a href="#products">מוצרים</a>
+          <a href="#contact">הזמנה</a>
           <a href="https://wa.me/c/972548858424" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
