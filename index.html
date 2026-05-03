@@ -363,7 +363,7 @@
       aspect-ratio: 4 / 3;
       display: grid;
       place-items: center;
-      padding: 28px;
+      overflow: hidden;
       background:
         linear-gradient(135deg, rgba(82, 59, 50, 0.08), rgba(14, 75, 87, 0.08)),
         var(--wash);
@@ -371,10 +371,11 @@
     }
 
     .product-visual img {
-      width: min(180px, 66%);
-      height: auto;
-      object-fit: contain;
-      opacity: 0.94;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.98;
     }
 
     .product-body {
@@ -563,15 +564,17 @@
       background:
         linear-gradient(135deg, rgba(14, 75, 87, 0.09), rgba(82, 59, 50, 0.05)),
         var(--white);
-      display: grid;
-      place-items: center;
-      padding: 52px;
+      overflow: hidden;
       box-shadow: var(--shadow);
     }
 
     .story-media img {
-      width: min(260px, 70%);
-      opacity: 0.95;
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      display: block;
+      object-fit: cover;
+      object-position: center;
     }
 
     .story-text p {
@@ -727,7 +730,10 @@
 
       .story-media {
         min-height: 300px;
-        padding: 34px;
+      }
+
+      .story-media img {
+        min-height: 300px;
       }
 
       .button {
@@ -767,7 +773,7 @@
           <p class="hero-copy">סבון טבעי עונתי בשפה נקיה, אדמתית ואישית. אדמא בנויה סביב קולקציות שמתחלפות עם השנה ומביאות אל שגרת הטיפוח מגע שקט, חם ומקומי.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">צפייה בקטלוג</a>
-            <a class="button button-secondary" href="https://wa.me/972548858424" target="_blank" rel="noopener">דברו איתי</a>
+            <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">דברו איתי</a>
           </div>
           <div class="hero-note" aria-label="עיקרי המותג">
             <div class="note-item">סבון טבעי</div>
@@ -804,32 +810,31 @@
           <div class="section-head">
             <p class="eyebrow">הקטלוג שלנו</p>
             <h2 id="products-title">מוצרי ADMA</h2>
-            <p class="section-lead">כאן יוצגו מוצרי אדמא בתוך האתר. כרגע פרטי המוצרים לא ניתנים לקריאה מהברנדבוק או מעמוד WhatsApp הציבורי, ולכן הכרטיסים מסומנים כמידע בהשלמה ולא מציגים שמות, מחירים, רכיבים או הבטחות שלא סופקו.</p>
+            <p class="section-lead">תמונות המוצרים מוצגות כאן כחלק מדף הבית. שמות מוצרים מדויקים, מחירים, רכיבים וריחות לא סופקו כמידע קריא, ולכן הפרטים המלאים נשארים בקטלוג ה־WhatsApp.</p>
           </div>
 
-          <!-- TODO: Replace these placeholders with real product data when available:
-               product name, short description, price, product image, scent, ingredients,
-               benefits, skin/hair fit, and a product-specific link if one exists. -->
+          <!-- TODO: Add verified product names, prices, scents, ingredients and product-specific links
+               when this information is provided outside the brandbook. -->
           <div class="product-grid">
             <article class="product-card">
-              <div class="product-visual summer">
-                <img src="assets/images/adma-emblem-brown.png" alt="מקום לתמונת מוצר מקולקציית קיץ">
+              <div class="product-visual">
+                <img src="assets/images/product-1.jpg" alt="סבון ADMA בתקריב על רקע בהיר">
               </div>
               <div class="product-body">
                 <div class="product-meta">
-                  <span>קולקציית קיץ</span>
-                  <span class="product-status">בהשלמה</span>
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
                 </div>
-                <h3>שם מוצר יתווסף כאן</h3>
-                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <h3>סבון ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
                 <dl class="product-details">
                   <div>
                     <dt>מחיר</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                   <div>
                     <dt>ריח / רכיבים</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                 </dl>
                 <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
@@ -837,24 +842,24 @@
             </article>
 
             <article class="product-card">
-              <div class="product-visual autumn">
-                <img src="assets/images/adma-emblem-teal.png" alt="מקום לתמונת מוצר מקולקציית סתיו">
+              <div class="product-visual">
+                <img src="assets/images/product-2.jpg" alt="סבון ADMA בידיים על רקע קיר בהיר">
               </div>
               <div class="product-body">
                 <div class="product-meta">
-                  <span>קולקציית סתיו</span>
-                  <span class="product-status">בהשלמה</span>
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
                 </div>
-                <h3>שם מוצר יתווסף כאן</h3>
-                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <h3>סבון ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
                 <dl class="product-details">
                   <div>
                     <dt>מחיר</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                   <div>
                     <dt>ריח / רכיבים</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                 </dl>
                 <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
@@ -862,24 +867,24 @@
             </article>
 
             <article class="product-card">
-              <div class="product-visual spring">
-                <img src="assets/images/adma-emblem-brown.png" alt="מקום לתמונת מוצר מקולקציית אביב">
+              <div class="product-visual">
+                <img src="assets/images/product-3.jpg" alt="סבון ADMA מוחזק ליד הפנים">
               </div>
               <div class="product-body">
                 <div class="product-meta">
-                  <span>קולקציית אביב</span>
-                  <span class="product-status">בהשלמה</span>
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
                 </div>
-                <h3>שם מוצר יתווסף כאן</h3>
-                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <h3>סבון ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
                 <dl class="product-details">
                   <div>
                     <dt>מחיר</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                   <div>
                     <dt>ריח / רכיבים</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                 </dl>
                 <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
@@ -887,24 +892,99 @@
             </article>
 
             <article class="product-card">
-              <div class="product-visual winter">
-                <img src="assets/images/adma-emblem-teal.png" alt="מקום לתמונת מוצר מקולקציית חורף">
+              <div class="product-visual">
+                <img src="assets/images/product-4.jpg" alt="מארז ADMA עם סבון ומוצרים משלימים">
               </div>
               <div class="product-body">
                 <div class="product-meta">
-                  <span>קולקציית חורף</span>
-                  <span class="product-status">בהשלמה</span>
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
                 </div>
-                <h3>שם מוצר יתווסף כאן</h3>
-                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <h3>מארז ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
                 <dl class="product-details">
                   <div>
                     <dt>מחיר</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                   <div>
                     <dt>ריח / רכיבים</dt>
-                    <dd>בהשלמה</dd>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual">
+                <img src="assets/images/product-5.jpg" alt="סבון ADMA מוצג ביד על רקע בהיר">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
+                </div>
+                <h3>סבון ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual">
+                <img src="assets/images/product-6.jpg" alt="סבון ADMA מצולם מקרוב לצד הפנים">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
+                </div>
+                <h3>סבון ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual">
+                <img src="assets/images/product-7.jpg" alt="מארז ADMA מוחזק בחוץ על רקע צמחייה">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>מוצר ADMA</span>
+                  <span class="product-status">פרטים ב־WhatsApp</span>
+                </div>
+                <h3>מארז ADMA</h3>
+                <p>פרטים מלאים זמינים בקטלוג ה־WhatsApp.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בקטלוג ה־WhatsApp</dd>
                   </div>
                 </dl>
                 <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
@@ -986,8 +1066,7 @@
       <section class="story" id="story" aria-labelledby="story-title">
         <div class="section-inner story-layout">
           <div class="story-media">
-            <!-- Founder photo was provided in chat but not available as a filesystem asset in this environment. -->
-            <img src="assets/images/adma-emblem-teal.png" alt="סמל אדמא מתוך הברנדבוק">
+            <img src="assets/images/founder.jpg" alt="אור מאחורי ADMA מחזיקה סבון אדמא בידיים">
           </div>
 
           <div class="story-text">
@@ -1025,7 +1104,7 @@
             <p class="section-lead">אפשר לפתוח את הקטלוג ב־WhatsApp או לשלוח הודעה ישירה. לכל שאלה על זמינות, התאמה או הזמנה - אני כאן.</p>
           </div>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424" target="_blank" rel="noopener">דברו איתי</a>
+            <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">דברו איתי</a>
             <a class="button button-secondary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">קטלוג WhatsApp</a>
           </div>
         </div>
