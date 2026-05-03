@@ -336,6 +336,119 @@
       margin-bottom: 4px;
     }
 
+    .product-catalog {
+      background:
+        linear-gradient(180deg, rgba(82, 59, 50, 0.04), rgba(14, 75, 87, 0.04)),
+        var(--paper);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      min-height: 100%;
+      border: 1px solid rgba(82, 59, 50, 0.14);
+      border-radius: 8px;
+      background: var(--white);
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(61, 43, 35, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-visual {
+      aspect-ratio: 4 / 3;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(82, 59, 50, 0.08), rgba(14, 75, 87, 0.08)),
+        var(--wash);
+      border-bottom: 1px solid rgba(82, 59, 50, 0.1);
+    }
+
+    .product-visual img {
+      width: min(180px, 66%);
+      height: auto;
+      object-fit: contain;
+      opacity: 0.94;
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--forest);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .product-status {
+      border: 1px solid rgba(14, 75, 87, 0.18);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--forest);
+      background: rgba(14, 75, 87, 0.07);
+      white-space: nowrap;
+    }
+
+    .product-card h3 {
+      color: var(--earth);
+      font-size: 1.28rem;
+      line-height: 1.25;
+      margin-bottom: 0;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 0.98rem;
+    }
+
+    .product-details {
+      display: grid;
+      gap: 7px;
+      margin: 4px 0 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .product-details div {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1px solid rgba(82, 59, 50, 0.1);
+      padding-top: 7px;
+    }
+
+    .product-details dt {
+      color: var(--earth);
+      font-weight: 800;
+    }
+
+    .product-details dd {
+      margin: 0;
+      text-align: left;
+    }
+
+    .product-card .button {
+      margin-top: auto;
+      width: 100%;
+    }
+
     .collections {
       background: var(--white);
       border-top: 1px solid rgba(82, 59, 50, 0.1);
@@ -576,6 +689,7 @@
         min-height: 0;
       }
 
+      .product-grid,
       .collection-grid,
       .values-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -598,6 +712,7 @@
       }
 
       .hero-note,
+      .product-grid,
       .collection-grid,
       .values-grid,
       .collection-mini {
@@ -634,6 +749,7 @@
           <img src="assets/images/adma-logo-brown.png" alt="לוגו אדמא - סבון טבעי עונתי">
         </a>
         <div class="nav-links" aria-label="קישורי ניווט">
+          <a href="#products">מוצרים</a>
           <a href="#collections">קולקציות</a>
           <a href="#story">הסיפור</a>
           <a href="#catalog">קטלוג</a>
@@ -682,6 +798,121 @@
           </div>
         </div>
       </aside>
+
+      <section class="product-catalog" id="products" aria-labelledby="products-title">
+        <div class="section-inner">
+          <div class="section-head">
+            <p class="eyebrow">הקטלוג שלנו</p>
+            <h2 id="products-title">מוצרי ADMA</h2>
+            <p class="section-lead">כאן יוצגו מוצרי אדמא בתוך האתר. כרגע פרטי המוצרים לא ניתנים לקריאה מהברנדבוק או מעמוד WhatsApp הציבורי, ולכן הכרטיסים מסומנים כמידע בהשלמה ולא מציגים שמות, מחירים, רכיבים או הבטחות שלא סופקו.</p>
+          </div>
+
+          <!-- TODO: Replace these placeholders with real product data when available:
+               product name, short description, price, product image, scent, ingredients,
+               benefits, skin/hair fit, and a product-specific link if one exists. -->
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-visual summer">
+                <img src="assets/images/adma-emblem-brown.png" alt="מקום לתמונת מוצר מקולקציית קיץ">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>קולקציית קיץ</span>
+                  <span class="product-status">בהשלמה</span>
+                </div>
+                <h3>שם מוצר יתווסף כאן</h3>
+                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual autumn">
+                <img src="assets/images/adma-emblem-teal.png" alt="מקום לתמונת מוצר מקולקציית סתיו">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>קולקציית סתיו</span>
+                  <span class="product-status">בהשלמה</span>
+                </div>
+                <h3>שם מוצר יתווסף כאן</h3>
+                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual spring">
+                <img src="assets/images/adma-emblem-brown.png" alt="מקום לתמונת מוצר מקולקציית אביב">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>קולקציית אביב</span>
+                  <span class="product-status">בהשלמה</span>
+                </div>
+                <h3>שם מוצר יתווסף כאן</h3>
+                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-visual winter">
+                <img src="assets/images/adma-emblem-teal.png" alt="מקום לתמונת מוצר מקולקציית חורף">
+              </div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span>קולקציית חורף</span>
+                  <span class="product-status">בהשלמה</span>
+                </div>
+                <h3>שם מוצר יתווסף כאן</h3>
+                <p>תיאור קצר יתווסף אחרי קבלת פרטי המוצר המאומתים.</p>
+                <dl class="product-details">
+                  <div>
+                    <dt>מחיר</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                  <div>
+                    <dt>ריח / רכיבים</dt>
+                    <dd>בהשלמה</dd>
+                  </div>
+                </dl>
+                <a class="button button-primary" href="https://wa.me/c/972548858424" target="_blank" rel="noopener">להזמנה ב־WhatsApp</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section class="collections" id="collections" aria-labelledby="collections-title">
         <div class="section-inner">
