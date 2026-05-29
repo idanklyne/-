@@ -612,16 +612,18 @@
     .product-thumb {
       display: block;
       width: calc(100% + 32px);
-      margin: -16px -16px 2px;
-      aspect-ratio: 4 / 5;
+      height: 248px;
+      margin: -16px -16px 4px;
       object-fit: cover;
+      object-position: center;
       background: var(--wash);
       border-bottom: 1px solid rgba(82, 59, 50, 0.08);
     }
 
     .product-thumb--ph {
+      height: 200px;
       object-fit: contain;
-      padding: 30px 30px 26px;
+      padding: 28px;
       background: var(--mint);
     }
 
