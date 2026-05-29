@@ -1894,5 +1894,42 @@
       </div>
     </footer>
   </div>
+  <script>
+    (() => {
+      const groups = Array.from(document.querySelectorAll(".product-group"));
+      const openGroup = (id) => {
+        const target = document.getElementById(id);
+        if (!target) return;
+        groups.forEach((group) => {
+          group.open = group === target;
+        });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
+      document.querySelectorAll(".summary-tile").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const id = link.getAttribute("href")?.slice(1);
+          if (!id) return;
+          event.preventDefault();
+          openGroup(id);
+          history.replaceState(null, "", `#${id}`);
+        });
+      });
+
+      groups.forEach((group) => {
+        group.addEventListener("toggle", () => {
+          if (!group.open) return;
+          groups.forEach((other) => {
+            if (other !== group) other.open = false;
+          });
+        });
+      });
+
+      const initialGroup = location.hash.replace("#", "");
+      if (initialGroup && document.getElementById(initialGroup)?.classList.contains("product-group")) {
+        openGroup(initialGroup);
+      }
+    })();
+  </script>
 </body>
 </html>
