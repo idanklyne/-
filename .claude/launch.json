@@ -1,12 +1,11 @@
 {
-  "version": "1.0",
+  "version": "0.0.1",
   "configurations": [
     {
-      "name": "ADMA static site",
-      "type": "static",
-      "command": "python3 -m http.server 8755",
-      "cwd": "/Users/proffesorklyne/Downloads/אדמא/adma-repo",
-      "url": "http://localhost:8755/index.html"
+      "name": "adma",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8755"],
+      "port": 8755
     }
   ]
 }
