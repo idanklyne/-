@@ -2141,12 +2141,31 @@
     (() => {
       const groups = Array.from(document.querySelectorAll(".product-group"));
       const topbar = document.querySelector(".topbar");
-      let pendingScroll = null;
+      let pendingRaf = null;
+      let pendingTimer = null;
 
       const scrollToGroup = (group) => {
         const offset = (topbar ? topbar.offsetHeight : 0) + 14;
         const y = Math.max(0, group.getBoundingClientRect().top + window.scrollY - offset);
         window.scrollTo({ top: y, behavior: "smooth" });
+      };
+
+      // Schedule the re-anchor scroll after the close-others reflow. We try
+      // requestAnimationFrame first (fires right after layout, most accurate),
+      // but a setTimeout backstop guarantees it still runs if rAF is throttled
+      // (e.g. a backgrounded tab). Whichever fires first cancels the other.
+      const scheduleScroll = (group) => {
+        if (pendingRaf) cancelAnimationFrame(pendingRaf);
+        if (pendingTimer) clearTimeout(pendingTimer);
+        const run = () => {
+          if (pendingRaf) { cancelAnimationFrame(pendingRaf); pendingRaf = null; }
+          if (pendingTimer) { clearTimeout(pendingTimer); pendingTimer = null; }
+          scrollToGroup(group);
+        };
+        pendingRaf = requestAnimationFrame(() => {
+          pendingRaf = requestAnimationFrame(run);
+        });
+        pendingTimer = setTimeout(run, 90);
       };
 
       const openGroup = (id) => {
@@ -2176,10 +2195,7 @@
           // Closing the other group reflows the page; wait for layout to
           // settle, then re-anchor the opened group just below the sticky
           // topbar. Without this the page collapse can dump you at the bottom.
-          if (pendingScroll) cancelAnimationFrame(pendingScroll);
-          pendingScroll = requestAnimationFrame(() => {
-            pendingScroll = requestAnimationFrame(() => scrollToGroup(group));
-          });
+          scheduleScroll(group);
         });
       });
 
