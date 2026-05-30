@@ -451,18 +451,27 @@
       content: "+";
       width: 32px;
       height: 32px;
-      border: 1px solid rgba(14, 75, 87, 0.2);
+      border: 1px solid rgba(82, 59, 50, 0.22);
       border-radius: 999px;
       display: inline-grid;
       place-items: center;
-      color: var(--forest);
+      color: var(--earth);
       font-size: 1.15rem;
       font-weight: 800;
       line-height: 1;
+      transition: background 260ms ease, color 260ms ease, border-color 260ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .product-group summary:hover::after {
+      background: rgba(82, 59, 50, 0.08);
+      transform: scale(1.06);
     }
 
     .product-group[open] summary::after {
       content: "-";
+      background: var(--earth);
+      color: var(--white);
+      border-color: var(--earth);
     }
 
     .product-group-title {
@@ -760,8 +769,8 @@
     .contact {
       color: var(--white);
       background:
-        linear-gradient(180deg, rgba(82, 59, 50, 0.26) 0%, rgba(14, 75, 87, 0) 28%),
-        var(--forest);
+        linear-gradient(180deg, rgba(222, 210, 195, 0.07) 0%, rgba(222, 210, 195, 0) 30%),
+        linear-gradient(180deg, #4a352c 0%, #38281f 55%, #2a1d17 100%);
     }
 
     .contact h2,
@@ -1158,14 +1167,32 @@
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
         opacity: 0;
-        transform: translateY(18px);
-        transition: opacity 600ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translateY(26px);
+        transition: opacity 700ms ease, transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+        transition-delay: var(--reveal-delay, 0ms);
+        will-change: opacity, transform;
       }
 
       .reveal.in {
         opacity: 1;
         transform: none;
       }
+
+      /* Product rows cascade in when a category opens */
+      .product-group[open] > .product-list > .product-row {
+        animation: adma-row-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .product-group[open] > .product-list > .product-row:nth-child(1) { animation-delay: 40ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(2) { animation-delay: 90ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(3) { animation-delay: 140ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(4) { animation-delay: 185ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(5) { animation-delay: 225ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(n+6) { animation-delay: 260ms; }
+    }
+
+    @keyframes adma-row-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -2113,13 +2140,21 @@
   <script>
     (() => {
       const groups = Array.from(document.querySelectorAll(".product-group"));
+      const topbar = document.querySelector(".topbar");
+      let pendingScroll = null;
+
+      const scrollToGroup = (group) => {
+        const offset = (topbar ? topbar.offsetHeight : 0) + 14;
+        const y = Math.max(0, group.getBoundingClientRect().top + window.scrollY - offset);
+        window.scrollTo({ top: y, behavior: "smooth" });
+      };
+
       const openGroup = (id) => {
         const target = document.getElementById(id);
         if (!target) return;
         groups.forEach((group) => {
           group.open = group === target;
         });
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
       };
 
       document.querySelectorAll(".summary-tile").forEach((link) => {
@@ -2138,6 +2173,13 @@
           groups.forEach((other) => {
             if (other !== group) other.open = false;
           });
+          // Closing the other group reflows the page; wait for layout to
+          // settle, then re-anchor the opened group just below the sticky
+          // topbar. Without this the page collapse can dump you at the bottom.
+          if (pendingScroll) cancelAnimationFrame(pendingScroll);
+          pendingScroll = requestAnimationFrame(() => {
+            pendingScroll = requestAnimationFrame(() => scrollToGroup(group));
+          });
         });
       });
 
@@ -2150,7 +2192,7 @@
     (() => {
       if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (!("IntersectionObserver" in window)) return;
-      const selector = ".section-head, .summary-tile, .product-group, .season-card, .value-card, .story-media, .story-text, .order-strip .section-inner";
+      const selector = ".section-head, .summary-tile, .season-card, .value-card, .story-media, .story-text, .order-strip .section-inner";
       const vh = window.innerHeight || document.documentElement.clientHeight;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -2160,9 +2202,14 @@
           }
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+      const counters = new Map();
       document.querySelectorAll(selector).forEach((el) => {
         const rect = el.getBoundingClientRect();
         if (rect.top > vh * 0.82) {
+          const parent = el.parentElement;
+          const index = counters.get(parent) || 0;
+          counters.set(parent, index + 1);
+          el.style.setProperty("--reveal-delay", Math.min(index, 5) * 80 + "ms");
           el.classList.add("reveal");
           observer.observe(el);
         }
