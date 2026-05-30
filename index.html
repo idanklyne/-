@@ -767,30 +767,37 @@
     }
 
     .contact {
-      color: var(--white);
+      text-align: center;
       background:
-        linear-gradient(180deg, rgba(222, 210, 195, 0.07) 0%, rgba(222, 210, 195, 0) 30%),
-        linear-gradient(180deg, #4a352c 0%, #38281f 55%, #2a1d17 100%);
+        radial-gradient(125% 92% at 50% 0%, rgba(14, 75, 87, 0.06) 0%, rgba(14, 75, 87, 0) 62%),
+        var(--paper);
     }
 
-    .contact h2,
+    .contact .section-head {
+      max-width: 620px;
+      margin-inline: auto;
+      margin-bottom: 30px;
+    }
+
     .contact .eyebrow {
-      color: var(--white);
+      justify-content: center;
     }
 
     .contact .section-lead {
-      max-width: 740px;
-      color: rgba(255, 253, 248, 0.75);
+      max-width: 600px;
+      margin-inline: auto;
     }
 
-    .contact .button-secondary,
+    .contact .cta-actions {
+      justify-content: center;
+    }
+
     .order-strip .button-secondary {
       color: var(--white);
       border-color: rgba(255, 253, 248, 0.36);
       background: transparent;
     }
 
-    .contact .button-secondary:hover,
     .order-strip .button-secondary:hover {
       background: rgba(255, 253, 248, 0.1);
     }
@@ -1113,51 +1120,69 @@
       border-radius: 14px;
     }
 
+    .button {
+      transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 200ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 16px 32px rgba(82, 59, 50, 0.26);
+    }
+
+    .button:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+
     .summary-tile {
-      transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+      transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), border-color 220ms ease, background 220ms ease, box-shadow 260ms ease;
     }
 
     .summary-tile:hover {
-      box-shadow: 0 12px 26px rgba(43, 35, 31, 0.08);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(43, 35, 31, 0.12);
     }
 
     .product-row {
       box-shadow: 0 1px 2px rgba(43, 35, 31, 0.04);
-      transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 250ms ease, border-color 250ms ease;
+      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease, border-color 280ms ease;
     }
 
     .product-row:hover {
-      transform: translateY(-4px);
-      border-color: rgba(14, 75, 87, 0.2);
-      box-shadow: 0 1px 2px rgba(43, 35, 31, 0.05), 0 16px 32px rgba(43, 35, 31, 0.1);
+      transform: translateY(-7px);
+      border-color: rgba(14, 75, 87, 0.24);
+      box-shadow: 0 1px 2px rgba(43, 35, 31, 0.05), 0 24px 44px rgba(43, 35, 31, 0.14);
     }
 
     .product-thumb {
-      transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .product-row:hover .product-thumb:not(.product-thumb--ph) {
-      transform: scale(1.045);
+      transform: scale(1.08);
     }
 
     .product-link {
-      transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background 200ms ease, box-shadow 200ms ease;
+      transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1), background 200ms ease, box-shadow 200ms ease;
     }
 
     .product-link:hover {
-      box-shadow: 0 10px 22px rgba(14, 75, 87, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(14, 75, 87, 0.26);
     }
 
     .season-card,
     .value-card {
       border-radius: 14px;
-      transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 250ms ease;
+      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease;
     }
 
     .season-card:hover,
     .value-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px rgba(43, 35, 31, 0.1);
+      transform: translateY(-7px) scale(1.012);
+      box-shadow: 0 24px 44px rgba(43, 35, 31, 0.14);
     }
 
     section {
@@ -1165,33 +1190,41 @@
     }
 
     @media (prefers-reduced-motion: no-preference) {
+      /* Entrance uses an animation (not transition) so each element's own
+         transition stays free for snappy hover effects after it reveals. */
       .reveal {
         opacity: 0;
-        transform: translateY(26px);
-        transition: opacity 700ms ease, transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
-        transition-delay: var(--reveal-delay, 0ms);
         will-change: opacity, transform;
       }
 
       .reveal.in {
         opacity: 1;
-        transform: none;
+        animation: adma-reveal-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation-delay: var(--reveal-delay, 0ms);
       }
+    }
+
+    @keyframes adma-reveal-in {
+      from { opacity: 0; transform: translateY(38px) scale(0.985); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
 
       /* Product rows cascade in when a category opens */
       .product-group[open] > .product-list > .product-row {
-        animation: adma-row-in 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        animation: adma-row-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
       }
-      .product-group[open] > .product-list > .product-row:nth-child(1) { animation-delay: 40ms; }
-      .product-group[open] > .product-list > .product-row:nth-child(2) { animation-delay: 90ms; }
-      .product-group[open] > .product-list > .product-row:nth-child(3) { animation-delay: 140ms; }
-      .product-group[open] > .product-list > .product-row:nth-child(4) { animation-delay: 185ms; }
-      .product-group[open] > .product-list > .product-row:nth-child(5) { animation-delay: 225ms; }
-      .product-group[open] > .product-list > .product-row:nth-child(n+6) { animation-delay: 260ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(1) { animation-delay: 50ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(2) { animation-delay: 115ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(3) { animation-delay: 180ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(4) { animation-delay: 240ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(5) { animation-delay: 295ms; }
+      .product-group[open] > .product-list > .product-row:nth-child(n+6) { animation-delay: 340ms; }
     }
 
     @keyframes adma-row-in {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(26px) scale(0.97); }
       to { opacity: 1; transform: none; }
     }
 
