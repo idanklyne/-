@@ -26,12 +26,13 @@
       --forest: #0e4b57;
       --leaf: #687b63;
       --clay: #a36f4d;
+      --clay-text: #8f5e3a;
       --sand: #ded2c3;
       --paper: #fbf8f3;
       --wash: #f2ece5;
       --mint: #e8eee7;
       --ink: #2b231f;
-      --muted: #756a62;
+      --muted: #6b6159;
       --line: #ded2c6;
       --white: #fffdf8;
       --shadow: 0 18px 48px rgba(61, 43, 35, 0.1);
@@ -644,7 +645,7 @@
     }
 
     .tag-info b {
-      color: var(--clay);
+      color: var(--clay-text);
       font-weight: 800;
       margin-inline-end: 6px;
     }
@@ -834,6 +835,41 @@
     .footer-links a {
       color: rgba(255, 253, 248, 0.72);
       text-decoration: none;
+    }
+
+    .footer-legal {
+      width: calc(100% - 40px);
+      max-width: 1120px;
+      margin: 20px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 253, 248, 0.11);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      font-size: 0.9rem;
+    }
+
+    .footer-legal a {
+      color: rgba(255, 253, 248, 0.7);
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover {
+      color: rgba(255, 253, 248, 0.95);
+      text-decoration: underline;
+    }
+
+    .footer-business {
+      width: calc(100% - 40px);
+      max-width: 1120px;
+      margin: 12px auto 0;
+      color: rgba(255, 253, 248, 0.5);
+      font-size: 0.85rem;
+    }
+
+    .fill-inline {
+      color: rgba(255, 240, 200, 0.85);
+      font-weight: 700;
     }
 
     @media (max-width: 980px) {
@@ -1070,6 +1106,27 @@
       }
     }
     /* ===== Touch-ups: micro-interactions, depth & accessibility (palette-preserving) ===== */
+    .skip-link {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 100;
+      padding: 12px 22px;
+      background: var(--earth);
+      color: var(--white);
+      font-weight: 800;
+      border-radius: 8px;
+      text-decoration: none;
+      transform: translateY(-160%);
+      transition: transform 200ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 3px solid var(--forest);
+      outline-offset: 2px;
+    }
+
     :focus-visible {
       outline: 2px solid var(--forest);
       outline-offset: 3px;
@@ -1080,7 +1137,7 @@
       outline: none;
     }
 
-    .contact :focus-visible,
+    /* Focus rings on dark surfaces use a light outline for visibility */
     .order-strip :focus-visible,
     footer :focus-visible,
     .wa-float:focus-visible {
@@ -1242,6 +1299,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#top">דלג לתוכן הראשי</a>
   <div class="site-shell">
     <header class="topbar">
       <nav class="nav" aria-label="ניווט ראשי">
@@ -1254,7 +1312,7 @@
           <a href="#seasons">עונות</a>
           <a href="#contact">הזמנה</a>
         </div>
-        <a class="button button-dark" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">להזמנה</a>
+        <a class="button button-dark" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="להזמנה (נפתח בחלון חדש)">להזמנה</a>
       </nav>
     </header>
 
@@ -1265,7 +1323,7 @@
           <h1 id="hero-title">אדמא</h1>
           <p class="hero-copy">סבונים טבעיים, שמפו מוצק ומארזים עונתיים שמביאים למקלחת ריח עדין, מרקם נעים ותחושה נקייה. בוחרים מה שמתאים, וממשיכים להזמנה קצרה ב-WhatsApp.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="להזמנה ב-WhatsApp (נפתח בחלון חדש)">להזמנה ב-WhatsApp</a>
             <a class="button button-secondary" href="#products">לראות מוצרים</a>
           </div>
           <div class="hero-note" aria-label="עיקרי ההזמנה">
@@ -1304,7 +1362,7 @@
             <p>אפשר להתייעץ לפני הזמנה, לבחור מארז קטן או גדול, ולבדוק מה זמין עכשיו. אני עונה ב-WhatsApp ועוזרת לבחור משהו שמתאים באמת.</p>
             <div class="cta-actions">
               <a class="button button-primary" href="#products">לבחירת מוצרים</a>
-              <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">לשאלה מהירה</a>
+              <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="לשאלה מהירה (נפתח בחלון חדש)">לשאלה מהירה</a>
             </div>
           </div>
         </div>
@@ -1377,7 +1435,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%92%D7%91%D7%99%D7%A9%20%D7%94%D7%90%D7%A8%D7%A5%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של גביש הארץ ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%92%D7%91%D7%99%D7%A9%20%D7%94%D7%90%D7%A8%D7%A5%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1399,7 +1457,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A6%27%D7%90%D7%99%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
+                  <a class="product-link" aria-label="בדיקת זמינות של צ'אי ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A6%27%D7%90%D7%99%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1421,7 +1479,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A4%D7%A8%D7%93%D7%A1%20%D7%A8%D7%99%D7%9E%D7%95%D7%A0%D7%99%D7%9D%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
+                  <a class="product-link" aria-label="בדיקת זמינות של פרדס רימונים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A4%D7%A8%D7%93%D7%A1%20%D7%A8%D7%99%D7%9E%D7%95%D7%A0%D7%99%D7%9D%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1443,7 +1501,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A4%D7%A8%D7%99%D7%97%D7%AA%20%D7%90%D7%91%D7%99%D7%91%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
+                  <a class="product-link" aria-label="בדיקת זמינות של פריחת אביב ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%A4%D7%A8%D7%99%D7%97%D7%AA%20%D7%90%D7%91%D7%99%D7%91%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1465,7 +1523,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%97%D7%9C%D7%91%20%D7%95%D7%93%D7%91%D7%A9%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
+                  <a class="product-link" aria-label="בדיקת זמינות של חלב ודבש ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%97%D7%9C%D7%91%20%D7%95%D7%93%D7%91%D7%A9%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1487,7 +1545,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של הדרים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1509,7 +1567,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%95%D7%A8%D7%A9%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של שורשים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%95%D7%A8%D7%A9%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1531,7 +1589,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%95%D7%97%D7%99%D7%98%D7%95%20%D7%9E%D7%9C%D7%A4%D7%A4%D7%95%D7%9F%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מוחיטו מלפפון ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%95%D7%97%D7%99%D7%98%D7%95%20%D7%9E%D7%9C%D7%A4%D7%A4%D7%95%D7%9F%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1553,7 +1611,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A4%D7%97%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של פחם ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A4%D7%97%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1575,7 +1633,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%99%D7%A2%D7%A8%20%D7%90%D7%95%D7%A8%D7%A0%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של יער אורנים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%99%D7%A2%D7%A8%20%D7%90%D7%95%D7%A8%D7%A0%D7%99%D7%9D%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1597,7 +1655,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%9E%D7%95%D7%AA%D7%92%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של ממותג בהתאמה אישית ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%9E%D7%95%D7%AA%D7%92%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1616,7 +1674,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%9E%D7%A0%D7%92%D7%95%20%D7%A7%D7%95%D7%A7%D7%95%D7%A1%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
+                  <a class="product-link" aria-label="בדיקת זמינות של מנגו קוקוס ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%90%D7%AA%20%22%D7%9E%D7%A0%D7%92%D7%95%20%D7%A7%D7%95%D7%A7%D7%95%D7%A1%22%20%28%E2%82%AA45%29%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%A2%D7%AA%20%D7%90%D7%9D%20%D7%94%D7%95%D7%90%20%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%9E%D7%9C%D7%90%D7%99." target="_blank" rel="noopener">לבדיקת זמינות ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1637,7 +1695,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A7%D7%95%D7%A7%D7%95%D7%A1%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של קוקוס ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A7%D7%95%D7%A7%D7%95%D7%A1%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
               </div>
@@ -1670,7 +1728,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%93%D7%95%D7%AA%20%D7%A9%D7%9C%20%D7%A8%D7%95%D7%96%D7%9E%D7%A8%D7%99%D7%9F%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של שדות של רוזמרין ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%93%D7%95%D7%AA%20%D7%A9%D7%9C%20%D7%A8%D7%95%D7%96%D7%9E%D7%A8%D7%99%D7%9F%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1692,7 +1750,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%95%D7%92%D7%94%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של נוגה ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%95%D7%92%D7%94%22%20%E2%82%AA45.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1713,7 +1771,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%9E%D7%95%D7%AA%D7%92%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של ממותג בהתאמה אישית ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%9E%D7%95%D7%AA%D7%92%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1732,7 +1790,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A1%D7%A8%D7%95%D7%9D%20%D7%94%D7%96%D7%A0%D7%94%20%D7%9C%D7%A9%D7%99%D7%A2%D7%A8%22%20%E2%82%AA65.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של סרום הזנה לשיער ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A1%D7%A8%D7%95%D7%9D%20%D7%94%D7%96%D7%A0%D7%94%20%D7%9C%D7%A9%D7%99%D7%A2%D7%A8%22%20%E2%82%AA65.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
               </div>
@@ -1765,7 +1823,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%A1%D7%91%D7%95%D7%9F%20%D7%95%D7%A0%D7%A8%22%20%E2%82%AA85.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז סבון ונר ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%A1%D7%91%D7%95%D7%9F%20%D7%95%D7%A0%D7%A8%22%20%E2%82%AA85.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1785,7 +1843,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%96%D7%95%D7%92%D7%99%22%20%E2%82%AA115.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז זוגי ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%96%D7%95%D7%92%D7%99%22%20%E2%82%AA115.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1805,7 +1863,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%90%D7%99%D7%A9%D7%99%22%20%E2%82%AA62.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז אישי ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%90%D7%99%D7%A9%D7%99%22%20%E2%82%AA62.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1826,7 +1884,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%9C%D7%A9%D7%99%D7%A2%D7%A8%22%20%E2%82%AA149.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז לשיער ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%9C%D7%A9%D7%99%D7%A2%D7%A8%22%20%E2%82%AA149.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1846,7 +1904,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA119.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז הדרים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA119.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1866,7 +1924,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%A6%27%D7%90%D7%99%20%D7%97%D7%95%D7%A8%D7%A4%D7%99%22%20%E2%82%AA129.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז צ'אי חורפי ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%A6%27%D7%90%D7%99%20%D7%97%D7%95%D7%A8%D7%A4%D7%99%22%20%E2%82%AA129.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1888,7 +1946,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מארז בהתאמה ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%90%D7%A8%D7%96%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%22%20%D7%AA%D7%9E%D7%97%D7%95%D7%A8%20%D7%9C%D7%A4%D7%99%20%D7%9B%D7%9E%D7%95%D7%AA.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
               </div>
@@ -1922,7 +1980,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%A8%20%D7%A9%D7%A2%D7%95%D7%95%D7%AA%20%D7%93%D7%91%D7%95%D7%A8%D7%99%D7%9D%22%20%E2%82%AA22%20/%20%E2%82%AA35.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של נר שעוות דבורים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%A8%20%D7%A9%D7%A2%D7%95%D7%95%D7%AA%20%D7%93%D7%91%D7%95%D7%A8%D7%99%D7%9D%22%20%E2%82%AA22%20/%20%E2%82%AA35.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1945,7 +2003,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%A8%20%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA22%20/%20%E2%82%AA35.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של נר הדרים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A0%D7%A8%20%D7%94%D7%93%D7%A8%D7%99%D7%9D%22%20%E2%82%AA22%20/%20%E2%82%AA35.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
               </div>
@@ -1976,7 +2034,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9B%D7%99%D7%A1%20%D7%9C%D7%99%D7%A4%D7%94%22%20%E2%82%AA12.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של כיס ליפה ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9B%D7%99%D7%A1%20%D7%9C%D7%99%D7%A4%D7%94%22%20%E2%82%AA12.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -1996,7 +2054,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A1%D7%91%D7%95%D7%A0%D7%99%D7%99%D7%AA%20%D7%A2%D7%A5%22%20%E2%82%AA18.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של סבוניית עץ ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A1%D7%91%D7%95%D7%A0%D7%99%D7%99%D7%AA%20%D7%A2%D7%A5%22%20%E2%82%AA18.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -2016,7 +2074,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%A1%D7%A8%D7%A7%20%D7%91%D7%9E%D7%91%D7%95%D7%A7%22%20%E2%82%AA30.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מסרק במבוק ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%A1%D7%A8%D7%A7%20%D7%91%D7%9E%D7%91%D7%95%D7%A7%22%20%E2%82%AA30.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -2035,7 +2093,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%99%D7%A7%D7%A1%20%D7%A1%D7%91%D7%95%D7%A0%D7%99%D7%9D%22%20%E2%82%AA30%20/%20%E2%82%AA48.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של מיקס סבונים ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%9E%D7%99%D7%A7%D7%A1%20%D7%A1%D7%91%D7%95%D7%A0%D7%99%D7%9D%22%20%E2%82%AA30%20/%20%E2%82%AA48.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
                 <article class="product-row">
@@ -2055,7 +2113,7 @@
                     </div>
 
                   </details>
-                  <a class="product-link" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%A4%D7%AA%D7%95%D7%9F%22%20%E2%82%AA15.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
+                  <a class="product-link" aria-label="הזמנה של שפתון ב-WhatsApp (נפתח בחלון חדש)" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%3A%20%22%D7%A9%D7%A4%D7%AA%D7%95%D7%9F%22%20%E2%82%AA15.%20%D7%96%D7%9E%D7%99%D7%9F%3F" target="_blank" rel="noopener">להזמנה ב-WhatsApp</a>
                 </article>
 
               </div>
@@ -2137,7 +2195,7 @@
         <div class="section-inner">
           <p><strong>רוצה לבחור יחד?</strong> אפשר לפתוח את WhatsApp, לראות מה זמין עכשיו, לשאול על ריח או מארז, ולהמשיך להזמנה בלי טופס ארוך.</p>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">פתיחת WhatsApp</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="פתיחת WhatsApp (נפתח בחלון חדש)">פתיחת WhatsApp</a>
             <a class="button button-secondary" href="#products">חזרה למוצרים</a>
           </div>
         </div>
@@ -2151,8 +2209,8 @@
             <p class="section-lead">אני עונה ב-WhatsApp, עוזרת לבדוק מה זמין, ומכוונת למוצר או מארז שמתאים לשימוש אישי או למתנה.</p>
           </div>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">דברו איתי</a>
-            <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">פתיחת קטלוג</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="דברו איתי (נפתח בחלון חדש)">דברו איתי</a>
+            <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="פתיחת קטלוג (נפתח בחלון חדש)">פתיחת קטלוג</a>
           </div>
         </div>
       </section>
@@ -2165,9 +2223,16 @@
         <div class="footer-links">
           <a href="#products">מוצרים</a>
           <a href="#contact">הזמנה</a>
-          <a href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="פנייה ב-WhatsApp (נפתח בחלון חדש)">WhatsApp</a>
         </div>
       </div>
+      <nav class="footer-legal" aria-label="מידע משפטי ונגישות">
+        <a href="legal/accessibility.html">הצהרת נגישות</a>
+        <a href="legal/privacy.html">מדיניות פרטיות</a>
+        <a href="legal/returns.html">ביטול והחזרות</a>
+        <a href="legal/terms.html">תקנון ותנאי שימוש</a>
+      </nav>
+      <p class="footer-business">אדמא · עוסק פטור מס' <span class="fill-inline">[מספר עוסק]</span> · סבון טבעי בעבודת יד, מתוצרת הארץ</p>
     </footer>
   </div>
   <script>
