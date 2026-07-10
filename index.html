@@ -878,25 +878,46 @@
     }
 
     .season-card small {
-      color: var(--forest);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--earth-soft);
       font-weight: 800;
+      letter-spacing: 0.04em;
     }
 
-    .summer {
-      background: #fbf3e4;
+    /* small earthy dot before each season label, tinted per season */
+    .season-card small::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--season-accent, var(--clay));
     }
 
-    .autumn {
-      background: #f2e4da;
+    /* Seasons share one calm, warm family — distinguished only by a whisper
+       of tint + a thin earthy top rule, so the group reads as one mood. */
+    .season-card {
+      position: relative;
+      background: var(--season-bg, var(--white));
+      border-color: rgba(82, 59, 50, 0.12);
     }
 
-    .spring {
-      background: var(--mint);
+    .season-card::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 22px;
+      height: 3px;
+      border-radius: 0 0 3px 3px;
+      background: var(--season-accent, var(--clay));
+      opacity: 0.85;
     }
 
-    .winter {
-      background: #e7edf0;
-    }
+    .summer { --season-bg: #f7f2e9; --season-accent: #c0863a; }
+    .autumn { --season-bg: #f3ebe1; --season-accent: #a65f3c; }
+    .spring { --season-bg: #eef0e8; --season-accent: #74854f; }
+    .winter { --season-bg: #eeeae4; --season-accent: #7c6f63; }
 
     .values-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
