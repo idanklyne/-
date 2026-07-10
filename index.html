@@ -844,80 +844,103 @@
       scroll-behavior: auto !important;
     }
 
-    .season-grid,
-    .values-grid {
+    /* ===== Seasons — minimal editorial index (thin rules, no boxes) ===== */
+    .season-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 0;
+      border-top: 1px solid var(--line);
     }
 
-    .season-card,
-    .value-card {
-      min-height: 214px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
+    .season-card {
+      position: relative;
+      padding: 30px 26px 26px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      background: var(--white);
+      gap: 14px;
+      background: none;
+      border: none;
     }
 
-    .season-card h3,
-    .value-card h3 {
-      margin-bottom: 8px;
-      color: var(--earth);
-      font-size: 1.35rem;
-    }
-
-    .season-card p,
-    .value-card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
+    /* thin vertical rule between seasons (RTL: on the inline-start edge) */
+    .season-card + .season-card::before {
+      content: "";
+      position: absolute;
+      inset-block: 22px;
+      inset-inline-end: 0;
+      width: 1px;
+      background: var(--line);
     }
 
     .season-card small {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       color: var(--earth-soft);
       font-weight: 800;
-      letter-spacing: 0.04em;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
     }
 
-    /* small earthy dot before each season label, tinted per season */
+    /* short accent stroke before each season label, tinted per season */
     .season-card small::before {
       content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
+      width: 22px;
+      height: 2px;
+      border-radius: 2px;
       background: var(--season-accent, var(--clay));
     }
 
-    /* Seasons share one calm, warm family — distinguished only by a whisper
-       of tint + a thin earthy top rule, so the group reads as one mood. */
-    .season-card {
-      position: relative;
-      background: var(--season-bg, var(--white));
-      border-color: rgba(82, 59, 50, 0.12);
+    .season-card h3 {
+      margin: 0;
+      color: var(--earth);
+      font-family: "Noto Serif Hebrew", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.15;
     }
 
-    .season-card::after {
-      content: "";
-      position: absolute;
-      inset-block-start: 0;
-      inset-inline: 22px;
-      height: 3px;
-      border-radius: 0 0 3px 3px;
-      background: var(--season-accent, var(--clay));
-      opacity: 0.85;
+    .season-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
     }
 
-    .summer { --season-bg: #f7f2e9; --season-accent: #c0863a; }
-    .autumn { --season-bg: #f3ebe1; --season-accent: #a65f3c; }
-    .spring { --season-bg: #eef0e8; --season-accent: #74854f; }
-    .winter { --season-bg: #eeeae4; --season-accent: #7c6f63; }
+    .summer { --season-accent: #c0863a; }
+    .autumn { --season-accent: #a65f3c; }
+    .spring { --season-accent: #74854f; }
+    .winter { --season-accent: #7c6f63; }
+
+    /* ===== Values — clean typographic list with thin top rules ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 40px;
+    }
+
+    .value-card {
+      padding: 26px 0 0;
+      border-top: 2px solid var(--earth);
+      background: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .value-card h3 {
+      margin: 0;
+      color: var(--earth);
+      font-size: 1.22rem;
+      font-weight: 800;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
 
     .values-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1141,6 +1164,20 @@
       .values-grid {
         grid-template-columns: 1fr;
       }
+
+      /* stacked seasons: swap vertical rules for horizontal dividers */
+      .season-card + .season-card::before {
+        inset-block: auto;
+        inset-inline: 26px;
+        inset-block-start: 0;
+        width: auto;
+        height: 1px;
+      }
+
+      .season-card { padding: 26px; }
+
+      /* stacked values: give each its own spacing */
+      .values-grid { gap: 26px; }
 
       .summary-tile {
         min-height: 102px;
@@ -1380,16 +1417,19 @@
       box-shadow: 0 14px 26px rgba(14, 75, 87, 0.26);
     }
 
-    .season-card,
+    .season-card h3,
     .value-card {
-      border-radius: 14px;
-      transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms ease;
+      transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease, border-color 220ms ease;
     }
 
-    .season-card:hover,
+    /* minimal hover: the season title lifts gently; the value top-rule warms */
+    .season-card:hover h3 {
+      transform: translateY(-3px);
+      color: var(--forest);
+    }
+
     .value-card:hover {
-      transform: translateY(-7px) scale(1.012);
-      box-shadow: 0 24px 44px rgba(43, 35, 31, 0.14);
+      border-top-color: var(--forest);
     }
 
     section {
