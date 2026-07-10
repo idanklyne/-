@@ -2191,26 +2191,16 @@
         </div>
       </section>
 
-      <aside class="order-strip" aria-label="קישור מהיר להזמנה">
-        <div class="section-inner">
-          <p><strong>רוצה לבחור יחד?</strong> אפשר לפתוח את WhatsApp, לראות מה זמין עכשיו, לשאול על ריח או מארז, ולהמשיך להזמנה בלי טופס ארוך.</p>
-          <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="פתיחת WhatsApp (נפתח בחלון חדש)">פתיחת WhatsApp</a>
-            <a class="button button-secondary" href="#products">חזרה למוצרים</a>
-          </div>
-        </div>
-      </aside>
-
       <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="section-inner">
           <div class="section-head">
             <p class="eyebrow">להזמנות ושאלות</p>
             <h2 id="contact-title">אפשר פשוט לכתוב לי</h2>
-            <p class="section-lead">אני עונה ב-WhatsApp, עוזרת לבדוק מה זמין, ומכוונת למוצר או מארז שמתאים לשימוש אישי או למתנה.</p>
+            <p class="section-lead">אני עונה ב-WhatsApp, עוזרת לבדוק מה זמין עכשיו, לשאול על ריח או מארז, ולהמשיך להזמנה בלי טופס ארוך — לשימוש אישי או למתנה.</p>
           </div>
           <div class="cta-actions">
-            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="דברו איתי (נפתח בחלון חדש)">דברו איתי</a>
-            <a class="button button-secondary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="פתיחת קטלוג (נפתח בחלון חדש)">פתיחת קטלוג</a>
+            <a class="button button-primary" href="https://wa.me/972548858424?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20%D7%90%D7%93%D7%9E%D7%90%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%AA%D7%99%D7%99%D7%A2%D7%A5%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F." target="_blank" rel="noopener" aria-label="דברו איתי ב-WhatsApp (נפתח בחלון חדש)">דברו איתי ב-WhatsApp</a>
+            <a class="button button-secondary" href="#products">חזרה למוצרים</a>
           </div>
         </div>
       </section>
@@ -2306,7 +2296,7 @@
     (() => {
       if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (!("IntersectionObserver" in window)) return;
-      const selector = ".section-head, .summary-tile, .season-card, .value-card, .story-media, .story-text, .order-strip .section-inner";
+      const selector = ".section-head, .summary-tile, .season-card, .value-card, .story-media, .story-text";
       const vh = window.innerHeight || document.documentElement.clientHeight;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
