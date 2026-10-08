@@ -600,6 +600,7 @@
     .qv-variants { border: 0; padding: 0; margin: 0 0 18px; }
     .qv-variants legend { font-weight: 800; color: var(--earth); margin-bottom: 10px; font-size: 0.94rem; }
     .qv-variants .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .qv-variants .opt.is-out { opacity: 0.5; cursor: not-allowed; }
     .opt input { position: absolute; opacity: 0; pointer-events: none; }
     .opt span {
       display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
@@ -687,6 +688,8 @@
       border: 1px solid var(--line); border-radius: var(--radius-sm);
       background: var(--white); font: inherit; font-weight: 400; color: var(--ink);
     }
+    /* 16px keeps iOS Safari from auto-zooming into the form fields */
+    .field input, .note-field textarea { font-size: 16px; }
     .field input:focus { outline: 2px solid var(--forest); outline-offset: 1px; border-color: transparent; }
     .field input[aria-invalid="true"] { border-color: #b0583d; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -843,6 +846,8 @@
       .hero-visual { gap: 10px; }
       .hero-stack { gap: 10px; }
       .hero-stack .hero-photo:first-child { margin-top: 20px; }
+      /* Phones: show the photos at their natural 3:4 so nothing is cropped */
+      .hero-photo-main, .hero-stack .hero-photo { aspect-ratio: 3 / 4; }
       .seal-wrap { left: -10px; top: -22px; }
       .seal { width: 76px; padding: 8px; }
       .steps { grid-template-columns: 1fr; gap: 22px; }
@@ -1307,34 +1312,34 @@
       const PRODUCTS = [
       {"id": "p10", "cat": "soaps", "name": "גביש הארץ", "price": 45, "stock": "in", "img": "assets/images/products/p10.jpg", "size": "100 ג'", "desc": "סבון פחם ובוץ ים המלח - בוץ שנחצב מבריכות מים מתוקים ליד ים המלח.", "info": [["ריח", "ניחוח עשיר של תבלינים חריפים, לניקוי עמוק וממריץ."], ["מתאים ל", "אקנה / אזורים שומניים בעור"]]},
       {"id": "p11", "cat": "soaps", "name": "צ'אי", "price": 45, "stock": "out", "img": "assets/images/products/p11.jpg", "size": "100 ג'", "desc": "סבון צ'אי מסאלה - נרקח מתבליני תה צ'אי הושרו במהלך כל הקיץ בשמן זית ישראלי.", "info": [["ריח", "בעל ניחוח חמים ומרגיע"], ["מתאים ל", "מעניק פילינג עדין לעור ומעודד זרימת דם לחידוש וריענון."]]},
-      {"id": "p12", "cat": "soaps", "name": "פרדס רימונים", "price": 45, "stock": "out", "img": "assets/images/products/p12.jpg", "size": "100 ג'", "desc": "סבון רימונים ורדים - מוקדש לעילוי נשמת אליעזר הכהן בוצר", "info": [["ריח", "ריח עדין עם מגע של ורדים"], ["מתאים ל", "מכיל נוגדי חימצון שמסייעים לאנטיאייג'ינג ושמירה על מראה רענן."]]},
+      {"id": "p12", "cat": "soaps", "name": "פרדס רימונים", "price": 45, "stock": "in", "img": "assets/images/products/p12.jpg", "size": "100 ג'", "desc": "סבון רימונים ורדים - מוקדש לעילוי נשמת אליעזר הכהן בוצר", "info": [["ריח", "ריח עדין עם מגע של ורדים"], ["מתאים ל", "מכיל נוגדי חימצון שמסייעים לאנטיאייג'ינג ושמירה על מראה רענן."]]},
       {"id": "spring-bloom", "cat": "soaps", "name": "פריחת אביב", "price": 45, "stock": "out", "size": "100 ג'", "desc": "סבון מוצק סלק ולבנדר", "info": [["ריח", "לבנדר"], ["מתאים ל", "מרגיע את העור ומשקם מנזקי השמש, עשיר בויטמין C המעניק גמישות לעור."]]},
       {"id": "milk-honey", "cat": "soaps", "name": "חלב ודבש", "price": 45, "stock": "out", "size": "100 ג'", "desc": "סבון חלב דבש ושיבולת שועל -עשוי מחלב שקד מזין ומרכך", "info": [["ריח", "ניחוח עשיר של דבש"], ["מתאים ל", "מסיר תאים מתים, מרגיע גירויים, מעניק לחות,ומשאיר את העור רך ונעים."]]},
-      {"id": "p15", "cat": "soaps", "name": "הדרים", "price": 45, "stock": "in", "img": "assets/images/products/p15.jpg", "size": "100 ג'", "desc": "סבון הדרים", "info": [["ריח", "הדרי לימוני"], ["מתאים ל", "מועשר בתמצית לימון, אשכולית, תפוז וויטמין C, מסייע לאחידות גוון העור ולשיקום מנזקי השמש והסביבה."]]},
-      {"id": "p16", "cat": "soaps", "name": "שורשים", "price": 45, "stock": "in", "img": "assets/images/products/p16.jpg", "size": "100 ג'", "desc": "סבון שורשי השדה", "info": [["ריח", "ריח טבעי"], ["מתאים ל", "מכיל ג'ינג'ר,כורכום וגזר, עשיר בבטא קרוטן - ויטמין A, מעודד התחדשות תאים ומחזק את שכבת ההגנה של העור."]]},
+      {"id": "p15", "cat": "soaps", "name": "הדרים", "price": 45, "stock": "out", "img": "assets/images/products/p15.jpg", "size": "100 ג'", "desc": "סבון הדרים", "info": [["ריח", "הדרי לימוני"], ["מתאים ל", "מועשר בתמצית לימון, אשכולית, תפוז וויטמין C, מסייע לאחידות גוון העור ולשיקום מנזקי השמש והסביבה."]]},
+      {"id": "p16", "cat": "soaps", "name": "שורשים", "price": 45, "stock": "out", "img": "assets/images/products/p16.jpg", "size": "100 ג'", "desc": "סבון שורשי השדה", "info": [["ריח", "ריח טבעי"], ["מתאים ל", "מכיל ג'ינג'ר,כורכום וגזר, עשיר בבטא קרוטן - ויטמין A, מעודד התחדשות תאים ומחזק את שכבת ההגנה של העור."]]},
       {"id": "p17", "cat": "soaps", "name": "מוחיטו מלפפון", "price": 45, "stock": "in", "img": "assets/images/products/p17.jpg", "size": "100 ג'", "desc": "סבון מלפפון ולואיזה", "info": [["ריח", "לואיזה פרשית"], ["מתאים ל", "עשיר בלחות, מרגיע ואנטי דלקתי."]]},
-      {"id": "p18", "cat": "soaps", "name": "פחם", "price": 45, "stock": "in", "img": "assets/images/products/p18.jpg", "size": "100 ג'", "desc": "סבון פחם", "info": [["ריח", "ניחוח עמוק"], ["מתאים ל", "סבון פחם ידוע ברפואות העתיקות כסופח רעלים ומטהר, מחדש את העור."]]},
-      {"id": "p19", "cat": "soaps", "name": "יער אורנים", "price": 45, "stock": "in", "img": "assets/images/products/p19.jpg", "size": "100 ג'", "desc": "סבון גרניום פילינג קפה עדין וקישוט אורן", "info": [["ריח", "גרניום"], ["מתאים ל", "סבון גרניום עם פילינג קפה עדין וחימר ירוק, מחדש תאים מתים ומאזן שומניות"]]},
+      {"id": "p18", "cat": "soaps", "name": "פחם", "price": 45, "stock": "out", "img": "assets/images/products/p18.jpg", "size": "100 ג'", "desc": "סבון פחם", "info": [["ריח", "ניחוח עמוק"], ["מתאים ל", "סבון פחם ידוע ברפואות העתיקות כסופח רעלים ומטהר, מחדש את העור."]]},
+      {"id": "p19", "cat": "soaps", "name": "יער אורנים", "price": 45, "stock": "out", "img": "assets/images/products/p19.jpg", "size": "100 ג'", "desc": "סבון גרניום פילינג קפה עדין וקישוט אורן", "info": [["ריח", "גרניום"], ["מתאים ל", "סבון גרניום עם פילינג קפה עדין וחימר ירוק, מחדש תאים מתים ומאזן שומניות"]]},
       {"id": "p20", "cat": "soaps", "name": "ממותג בהתאמה אישית", "price": null, "stock": "in", "img": "assets/images/products/p20.jpg", "size": "100 ג'", "desc": "סבון מוצק ממותג בהתאמה אישית לפי הזמנה.", "info": [["ריח", "במגוון ריחות וצבעים"], ["מתאים ל", "מותאם לצורך העור/ שילוב חלב אם/ מתנה לעובדים, מתנת חג או סוף שנה / מארז פינוק/ מתנה לאישה."]]},
       {"id": "p28", "cat": "soaps", "name": "מנגו קוקוס", "price": 45, "stock": "out", "img": "assets/images/products/p28.jpg", "desc": "סבון עונתי שזמינותו משתנה. אפשר לבדוק מה נמצא כרגע במלאי."},
-      {"id": "p29", "cat": "soaps", "name": "קוקוס", "price": 45, "stock": "in", "img": "assets/images/products/p29.jpg", "desc": "סבון קוקוס", "info": [["ריח", "קוקוס קרמי"], ["מתאים ל", "תורם להזנה וריכוך העור, עשיר בלחות."]]},
+      {"id": "p29", "cat": "soaps", "name": "קוקוס", "price": 45, "stock": "out", "img": "assets/images/products/p29.jpg", "desc": "סבון קוקוס", "info": [["ריח", "קוקוס קרמי"], ["מתאים ל", "תורם להזנה וריכוך העור, עשיר בלחות."]]},
       {"id": "p21", "cat": "hair", "name": "שדות של רוזמרין", "price": 45, "stock": "in", "img": "assets/images/products/p21.jpg", "size": "100 ג'", "desc": "שמפו רוזמרין", "info": [["ריח", "רוזמרין והדס"], ["מתאים ל", "משקם ומחזק את השיער, מעניק לחות ומאזן את רמת ה-pH, ללא SLS/SCS."]]},
-      {"id": "p22", "cat": "hair", "name": "נוגה", "price": 45, "stock": "in", "img": "assets/images/products/p22.jpg", "size": "100 ג'", "desc": "שמפו סרפד", "info": [["ריח", "ריח פרשי עוטף"], ["מתאים ל", "עשיר במינרלים, מחזק שורשים, מאזן שומניות, מפחית קשקשים, מעודד צמיחה בריאה - מותאם לשימוש יומיומי."]]},
+      {"id": "p22", "cat": "hair", "name": "נוגה", "price": 45, "stock": "out", "img": "assets/images/products/p22.jpg", "size": "100 ג'", "desc": "שמפו סרפד", "info": [["ריח", "ריח פרשי עוטף"], ["מתאים ל", "עשיר במינרלים, מחזק שורשים, מאזן שומניות, מפחית קשקשים, מעודד צמיחה בריאה - מותאם לשימוש יומיומי."]]},
       {"id": "p23", "cat": "hair", "name": "ממותג בהתאמה אישית", "price": null, "stock": "in", "img": "assets/images/products/p23.jpg", "size": "משקל לפי כמות", "desc": "שמפו מוצק ממותג בהתאמה אישית לפי הזמנה.", "info": [["ריח", "במגוון ריחות וצבעים"], ["מתאים ל", "מותאם לצורך העור/ שילוב חלב אם/ מתנה לעובדים, מתנת חג או סוף שנה / מארז פינוק/ מתנה לאישה."]]},
       {"id": "p27", "cat": "hair", "name": "סרום הזנה לשיער", "price": 65, "stock": "in", "img": "assets/images/products/p27.jpg", "desc": "מבוסס של שמן זית ישראלי מובחר מושרה בענפי רוזמרין, ענפי הדס וענפי זית."},
       {"id": "p03", "cat": "sets", "name": "מארז סבון ונר", "price": 85, "stock": "in", "img": "assets/images/products/p03.jpg", "desc": "סבון לבחירתך ונר לבחירתך עשוי עבודת יד ותוצרת חקלאית מקומית.", "info": [["ריח", "במגוון ריחות וצבעים"], ["מתאים ל", "מתנה לעובדים, מתנת חג או סוף שנה / מארז פינוק/ מתנה לאישה."]], "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
       {"id": "p04", "cat": "sets", "name": "מארז זוגי", "price": 115, "stock": "in", "img": "assets/images/products/p04.jpg", "desc": "סבונים לבחירתך עשויים עבודת יד ותוצרת חקלאית מקומית.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
       {"id": "p05", "cat": "sets", "name": "מארז אישי", "price": 62, "stock": "in", "img": "assets/images/products/p05.jpg", "desc": "סבון לבחירתך עשוי עבודת יד ותוצרת חקלאית מקומית.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
       {"id": "p06", "cat": "sets", "name": "מארז לשיער", "price": 149, "stock": "in", "img": "assets/images/products/p06.jpg", "desc": "מכיל שמפו רוזמרין משקם ומחזק את השיער, מעניק לחות ומאזן את רמת ה-pH, ללא SLS/SCS", "info": [["כולל", "שמפו רוזמרין, סרום שמנים, בקבוק ספריי, מברשת במבוק לעיסוי הקרקפת, סבוניית עץ והוראות שימוש."]], "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
-      {"id": "p07", "cat": "sets", "name": "מארז הדרים", "price": 119, "stock": "in", "img": "assets/images/products/p07.jpg", "desc": "מארז רענן ממשפחת ההדרים, בהתאם למלאי העונתי.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
-      {"id": "p08", "cat": "sets", "name": "מארז צ'אי חורפי", "price": 129, "stock": "in", "img": "assets/images/products/p08.jpg", "desc": "מארז חורפי בניחוח צ'אי, בהתאם למלאי העונתי.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
+      {"id": "p07", "cat": "sets", "name": "מארז הדרים", "price": 119, "stock": "out", "img": "assets/images/products/p07.jpg", "desc": "מארז רענן ממשפחת ההדרים, בהתאם למלאי העונתי.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
+      {"id": "p08", "cat": "sets", "name": "מארז צ'אי חורפי", "price": 129, "stock": "out", "img": "assets/images/products/p08.jpg", "desc": "מארז חורפי בניחוח צ'אי, בהתאם למלאי העונתי.", "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
       {"id": "p09", "cat": "sets", "name": "מארז בהתאמה", "price": null, "stock": "in", "img": "assets/images/products/p09.jpg", "desc": "מארזים בהרכבה אישית לפי הזמנה ודרישה.", "info": [["ריח", "במגוון ריחות וצבעים"], ["מתאים ל", "מתנה לעובדים, מתנת חג או סוף שנה / מארז פינוק/ מתנה לאישה."]], "note": "אפשר להזמין כמויות בהתאמה אישית, אפשר להוסיף לוגו מטעם החברה."},
-      {"id": "p01", "cat": "candles", "name": "נר שעוות דבורים", "variants": [{"label": "50 ג׳", "price": 22}, {"label": "100 ג׳", "price": 35}], "stock": "in", "img": "assets/images/products/p01.jpg", "desc": "נר בעבודת יד עשוי שעוות דבורים.", "info": [["ריח", "דבש"], ["רכיבים", "שעוות דבורים, שמן קוקוס"], ["מתאים ל", "מתנה, חדר שינה ואווירה רגועה."]]},
-      {"id": "p02", "cat": "candles", "name": "נר הדרים", "variants": [{"label": "50 ג׳", "price": 22}, {"label": "100 ג׳", "price": 35}], "stock": "in", "img": "assets/images/products/p02.jpg", "desc": "נר בעבודת יד עשוי שעוות סויה", "info": [["ריח", "אשכולית לימון ותפוז"], ["רכיבים", "שעוות סויה, שמן קוקוס, שמן אתרי; אשכולית, לימון, תפוז."], ["מתאים ל", "מתנה, חדר שינה, אווירה רגועה."]]},
+      {"id": "p01", "cat": "candles", "name": "נר שעוות דבורים", "variants": [{"label": "50 ג׳", "price": 22}, {"label": "100 ג׳", "price": 35, "stock": "out"}], "stock": "in", "img": "assets/images/products/p01.jpg", "desc": "נר בעבודת יד עשוי שעוות דבורים.", "info": [["ריח", "דבש"], ["רכיבים", "שעוות דבורים, שמן קוקוס"], ["מתאים ל", "מתנה, חדר שינה ואווירה רגועה."]]},
+      {"id": "p02", "cat": "candles", "name": "נר הדרים", "variants": [{"label": "50 ג׳", "price": 22}, {"label": "100 ג׳", "price": 35}], "stock": "out", "img": "assets/images/products/p02.jpg", "desc": "נר בעבודת יד עשוי שעוות סויה", "info": [["ריח", "אשכולית לימון ותפוז"], ["רכיבים", "שעוות סויה, שמן קוקוס, שמן אתרי; אשכולית, לימון, תפוז."], ["מתאים ל", "מתנה, חדר שינה, אווירה רגועה."]]},
       {"id": "p24", "cat": "extras", "name": "כיס ליפה", "price": 12, "stock": "in", "img": "assets/images/products/p24.jpg", "desc": "כיס לסבון מליפה טבעית", "info": [["מתאים ל", "נוח לאחיזה ומונע החלקות, מעניק פילינג לעור, ומסייע לייבוש ושימור הסבון"]]},
       {"id": "p25", "cat": "extras", "name": "סבוניית עץ", "price": 18, "stock": "in", "img": "assets/images/products/p25.jpg", "desc": "מעמד ייבוש סבון מעץ", "info": [["מתאים ל", "נוח לנסיעות, מותאם לשימוש במקלחת ושימור הסבון."]]},
-      {"id": "p26", "cat": "extras", "name": "מסרק במבוק", "price": 30, "stock": "in", "img": "assets/images/products/p26.jpg", "desc": "מסרק במבוק", "info": [["מתאים ל", "מעניק עיסוי לקרקפת ומחדיר את הסרום לקרקפת, עשוי מחומרים ידידותיים לסביבה."]]},
-      {"id": "p30", "cat": "extras", "name": "מיקס סבונים", "variants": [{"label": "קטן", "price": 30}, {"label": "גדול", "price": 48}], "stock": "in", "img": "assets/images/products/p30.jpg", "desc": "מיקס דוגמיות להיכרות עם כמה ריחות, בהתאם למלאי הקיים."},
+      {"id": "p26", "cat": "extras", "name": "מסרק במבוק", "price": 30, "stock": "out", "img": "assets/images/products/p26.jpg", "desc": "מסרק במבוק", "info": [["מתאים ל", "מעניק עיסוי לקרקפת ומחדיר את הסרום לקרקפת, עשוי מחומרים ידידותיים לסביבה."]]},
+      {"id": "p30", "cat": "extras", "name": "מיקס סבונים", "variants": [{"label": "קטן", "price": 55}, {"label": "גדול", "price": 70}], "stock": "in", "img": "assets/images/products/p30.jpg", "desc": "מיקס דוגמיות להיכרות עם כמה ריחות, בהתאם למלאי הקיים."},
       {"id": "p31", "cat": "extras", "name": "שפתון", "price": 15, "stock": "in", "img": "assets/images/products/p31.jpg", "desc": "מבוסס עם שעוות דבורים", "info": [["ריח", "וניל"]]}
       ];
 
@@ -1343,7 +1348,9 @@
 
       const priceOf = (p, variant) => (p.variants ? (p.variants.find((v) => v.label === variant) || {}).price : p.price);
       const priceLabel = (p) => (p.variants ? "מ-" + fmt(Math.min(...p.variants.map((v) => v.price))) : p.price == null ? "לפי כמות" : fmt(p.price));
-      const kindOf = (p) => (p.stock === "out" ? "out" : p.price === null && !p.variants ? "quote" : "buy");
+      const variantIn = (v) => v.stock !== "out";
+      const isOut = (p) => p.stock === "out" || (p.variants && !p.variants.some(variantIn));
+      const kindOf = (p) => (isOut(p) ? "out" : p.price === null && !p.variants ? "quote" : "buy");
 
       const MESSAGES = {
         general: "היי, הגעתי דרך האתר של אדמא ואשמח להתייעץ ולהזמין.",
@@ -1633,9 +1640,10 @@
       const status = $("#gridStatus");
       let filter = "all";
       let onlyIn = false;
-      const ordered = PRODUCTS.map((p, i) => ({ p, i }))
-        .sort((a, b) => (a.p.stock === "out") - (b.p.stock === "out") || a.i - b.i)
+      const orderProducts = () => PRODUCTS.map((p, i) => ({ p, i }))
+        .sort((a, b) => isOut(a.p) - isOut(b.p) || a.i - b.i)
         .map((x) => x.p);
+      let ordered = orderProducts();
 
       const actionHTML = (p) => {
         const k = kindOf(p);
@@ -1670,11 +1678,11 @@
       };
 
       const counts = PRODUCTS.reduce((m, p) => { m[p.cat] = (m[p.cat] || 0) + 1; return m; }, { all: PRODUCTS.length });
-      const countsIn = PRODUCTS.reduce((m, p) => { if (p.stock !== "out") { m[p.cat] = (m[p.cat] || 0) + 1; m.all += 1; } return m; }, { all: 0 });
-      const renderCounts = () => $$("[data-count]").forEach((el) => { el.textContent = (onlyIn ? countsIn : counts)[el.dataset.count] || 0; });
+      const countsIn = () => PRODUCTS.reduce((m, p) => { if (!isOut(p)) { m[p.cat] = (m[p.cat] || 0) + 1; m.all += 1; } return m; }, { all: 0 });
+      const renderCounts = () => { const c = onlyIn ? countsIn() : counts; $$("[data-count]").forEach((el) => { el.textContent = c[el.dataset.count] || 0; }); };
 
       const renderGrid = (animate) => {
-        const list = ordered.filter((p) => (filter === "all" || p.cat === filter) && (!onlyIn || p.stock !== "out"));
+        const list = ordered.filter((p) => (filter === "all" || p.cat === filter) && (!onlyIn || !isOut(p)));
         const paint = () => {
           grid.innerHTML = list.length
             ? list.map(cardHTML).join("")
@@ -1736,12 +1744,13 @@
         const p = byId.get(id);
         if (!p) return;
         const k = kindOf(p);
-        let variant = p.variants ? p.variants[0].label : null;
+        const firstVariant = p.variants ? (p.variants.find(variantIn) || p.variants[0]) : null;
+        let variant = firstVariant ? firstVariant.label : null;
         let qty = 1;
         const info = (p.info || []).map(([label, text]) => `<div><dt>${esc(label)}</dt><dd>${esc(text)}</dd></div>`).join("")
           + (p.size ? `<div><dt>משקל</dt><dd>${esc(p.size)}</dd></div>` : "");
-        const variantsHTML = p.variants && k === "buy" ? `<fieldset class="qv-variants"><legend>גודל</legend><div class="opts">${p.variants.map((v, i) =>
-          `<label class="opt"><input type="radio" name="qv-variant" value="${esc(v.label)}"${i === 0 ? " checked" : ""}><span>${esc(v.label)} · ${fmt(v.price)}</span></label>`).join("")}</div></fieldset>` : "";
+        const variantsHTML = p.variants && k === "buy" ? `<fieldset class="qv-variants"><legend>גודל</legend><div class="opts">${p.variants.map((v) =>
+          `<label class="opt${variantIn(v) ? "" : " is-out"}"><input type="radio" name="qv-variant" value="${esc(v.label)}"${v === firstVariant ? " checked" : ""}${variantIn(v) ? "" : " disabled"}><span>${esc(v.label)} · ${variantIn(v) ? fmt(v.price) : "אזל"}</span></label>`).join("")}</div></fieldset>` : "";
         const buyHTML = k === "buy"
           ? `<div class="qv-buy">
                <div class="stepper" aria-label="כמות">
@@ -1761,7 +1770,7 @@
           <div class="qv-body">
             <p class="eyebrow">${esc(CAT_NAMES[p.cat])}</p>
             <h2 id="qvTitle">${esc(p.name)}</h2>
-            <div class="qv-price" id="qvPrice">${p.variants ? fmt(p.variants[0].price) : priceLabel(p)}</div>
+            <div class="qv-price" id="qvPrice">${firstVariant ? fmt(firstVariant.price) : priceLabel(p)}</div>
             ${stock}
             <p class="qv-desc">${esc(p.desc)}</p>
             ${info ? `<dl class="qv-info">${info}</dl>` : ""}
@@ -1820,6 +1829,66 @@
       }
       renderCart(false);
 
+      /* ===== Live stock + prices from the owner's sheet =====
+         CATALOG_CSV_URL = the "קטלוג" tab published to the web as CSV (File → Share → Publish to web).
+         Columns: A id, E price, F quantity, G active (כן/לא). Variants use ids like p01-1, p01-2.
+         Until the URL is set, the flags written in PRODUCTS above are used. */
+      const CATALOG_CSV_URL = "";
+      const parseCSV = (text) => {
+        const rows = []; let row = [], cell = "", q = false;
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (q) { if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; }
+          else if (c === '"') q = true;
+          else if (c === ",") { row.push(cell); cell = ""; }
+          else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+          else cell += c;
+        }
+        if (cell || row.length) { row.push(cell); rows.push(row); }
+        return rows;
+      };
+      const applyCatalog = (rows) => {
+        const live = new Map();
+        rows.slice(1).forEach((r) => {
+          const id = (r[0] || "").trim();
+          if (!id) return;
+          const price = Number(String(r[4] || "").replace(/[^\d.]/g, ""));
+          const qty = String(r[5] || "").trim();
+          const active = String(r[6] || "").trim() === "כן";
+          live.set(id, { price: price > 0 ? price : null, inStock: active && qty !== "" && Number(qty) > 0 });
+        });
+        if (!live.size) return;
+        let changed = false;
+        PRODUCTS.forEach((p) => {
+          if (p.variants) {
+            p.variants.forEach((v, i) => {
+              const row = live.get(p.id + "-" + (i + 1));
+              if (!row) return;
+              if (row.price && row.price !== v.price) { v.price = row.price; changed = true; }
+              const st = row.inStock ? "in" : "out";
+              if ((v.stock || "in") !== st) { v.stock = st; changed = true; }
+            });
+            return;
+          }
+          const row = live.get(p.id);
+          if (!row) return;
+          if (p.price !== null && row.price && row.price !== p.price) { p.price = row.price; changed = true; }
+          const st = row.inStock ? "in" : "out";
+          if (p.stock !== st) { p.stock = st; changed = true; }
+        });
+        if (!changed) return;
+        ordered = orderProducts();
+        renderCounts();
+        renderGrid(false);
+        renderCart(false);
+      };
+      if (CATALOG_CSV_URL) {
+        fetch(CATALOG_CSV_URL, { cache: "no-store" })
+          .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+          .then((t) => applyCatalog(parseCSV(t)))
+          .catch(() => {});
+      }
+
       /* ===== Current season ===== */
       const m = new Date().getMonth();
       const season = m === 11 || m <= 1 ? "winter" : m <= 4 ? "spring" : m <= 7 ? "summer" : "autumn";
@@ -1863,11 +1932,14 @@
           io.observe(el);
         });
 
+        /* Parallax only on wide screens: on phones it pushed the hero photos under the next section. */
         const layers = $$("[data-depth]");
+        const wide = window.matchMedia("(min-width: 901px)");
         let ticking = false;
         const parallax = () => {
           const y = window.scrollY;
-          if (y < window.innerHeight * 1.3) {
+          if (!wide.matches) { layers.forEach((l) => { l.style.transform = ""; }); }
+          else if (y < window.innerHeight * 1.3) {
             layers.forEach((l) => { l.style.transform = `translate3d(0, ${(y * Number(l.dataset.depth)).toFixed(1)}px, 0)`; });
           }
           ticking = false;
