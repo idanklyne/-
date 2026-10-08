@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>אדמא | סבון טבעי עונתי מתוצרת הארץ</title>
-  <meta name="description" content="אדמא - סבונים טבעיים, שמפו מוצק, נרות ומארזים עונתיים בעבודת יד. בוחרים באתר ושולחים הזמנה אחת ב-WhatsApp.">
+  <meta name="description" content="אדמא - סבונים טבעיים, שמפו מוצק, נרות ומארזים עונתיים בעבודת יד. בוחרים באתר ומשלמים באשראי, או שולחים הזמנה ב-WhatsApp.">
   <meta name="theme-color" content="#fbf8f3">
   <link rel="canonical" href="https://admasoaps.com/">
   <meta property="og:title" content="אדמא | סבון טבעי עונתי">
-  <meta property="og:description" content="סבונים טבעיים, שמפו מוצק ומארזים עונתיים בעבודת יד. בוחרים באתר וממשיכים להזמנה ב-WhatsApp.">
+  <meta property="og:description" content="סבונים טבעיים, שמפו מוצק ומארזים עונתיים בעבודת יד. בוחרים באתר ומשלמים באשראי, או ממשיכים להזמנה ב-WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="he_IL">
   <meta property="og:url" content="https://admasoaps.com/">
@@ -157,7 +157,7 @@
     }
     .nav { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: inline-flex; text-decoration: none; }
-    .brand img { width: 168px; height: auto; transform-origin: right center; transition: transform 300ms var(--ease); }
+    .brand img { width: 48px; height: 48px; object-fit: contain; transform-origin: right center; transition: transform 300ms var(--ease); }
     .topbar.scrolled .brand img { transform: scale(0.9); }
     .nav-links { display: flex; align-items: center; gap: 28px; font-size: 0.95rem; font-weight: 600; color: var(--muted); }
     .nav-links a { position: relative; text-decoration: none; padding: 6px 0; transition: color 160ms ease; }
@@ -672,6 +672,34 @@
     .link-btn { border: 0; background: none; padding: 6px 2px; color: var(--muted); font-weight: 700; font-size: 0.9rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
     .link-btn:hover { color: var(--earth); }
 
+    /* ===== Checkout (card payment via Grow) ===== */
+    .cart-actions { display: grid; gap: 10px; }
+    .cart-actions[hidden], .checkout[hidden] { display: none; }
+    .cart-actions .btn-ghost { background: var(--white); }
+    .checkout { display: grid; gap: 12px; }
+    .checkout-title { margin: 0; font-size: 1.05rem; font-weight: 800; color: var(--earth); }
+    .field { display: grid; gap: 6px; font-weight: 700; font-size: 0.9rem; color: var(--earth); }
+    .field span small { font-weight: 400; color: var(--muted); }
+    .field input {
+      width: 100%; min-height: 48px; padding: 0 14px;
+      border: 1px solid var(--line); border-radius: var(--radius-sm);
+      background: var(--white); font: inherit; font-weight: 400; color: var(--ink);
+    }
+    .field input:focus { outline: 2px solid var(--forest); outline-offset: 1px; border-color: transparent; }
+    .field input[aria-invalid="true"] { border-color: #b0583d; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .checkout-error { margin: 0; padding: 12px 14px; border-radius: var(--radius-sm); background: #f8e8e2; color: #7a3a26; font-size: 0.92rem; line-height: 1.5; }
+    .checkout-error a { color: inherit; font-weight: 700; }
+    .btn[aria-busy="true"] { pointer-events: none; opacity: 0.75; }
+    .btn[aria-busy="true"]::before {
+      content: ""; width: 18px; height: 18px; border-radius: 50%;
+      border: 2px solid rgba(255, 253, 248, 0.45); border-top-color: var(--white);
+      animation: spin 800ms linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .checkout-secure { margin: 0; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    @media (max-width: 420px) { .field-row { grid-template-columns: 1fr; } }
+
     .menu-links { display: grid; gap: 4px; padding: 16px 0; }
     .menu-links a {
       display: flex; align-items: center; justify-content: space-between;
@@ -874,7 +902,7 @@
     <header class="topbar" id="topbar">
       <nav class="nav wrap" aria-label="ניווט ראשי">
         <a class="brand" href="#main" aria-label="אדמא - מעבר לתחילת העמוד">
-          <img src="assets/images/adma-logo-brown.png" alt="אדמא - סבון טבעי עונתי" width="168" height="48">
+          <img src="assets/images/adma-emblem-teal.png" alt="אדמא - סבון טבעי עונתי" width="48" height="48">
         </a>
         <div class="nav-links">
           <a href="#products">מוצרים</a>
@@ -903,7 +931,7 @@
             <p class="eyebrow" data-intro style="--d:80">סבון טבעי בעבודת יד</p>
             <h1 id="hero-title" data-intro style="--d:160">אדמא</h1>
             <p class="hero-tagline" data-intro style="--d:320">סבונים שנעשים לאט, מחומרים של הארץ ומריחות של העונה.</p>
-            <p class="hero-copy" data-intro style="--d:440">סבונים טבעיים, שמפו מוצק, נרות ומארזים למתנה. בוחרים באתר, מוסיפים לסל, ושולחים הזמנה אחת מסודרת ב-WhatsApp.</p>
+            <p class="hero-copy" data-intro style="--d:440">סבונים טבעיים, שמפו מוצק, נרות ומארזים למתנה. בוחרים באתר, מוסיפים לסל, ומשלמים באשראי או שולחים הזמנה אחת מסודרת ב-WhatsApp.</p>
             <div class="hero-actions" data-intro style="--d:560">
               <a class="btn btn-primary" href="#products">
                 לבחירת מוצרים
@@ -952,7 +980,7 @@
         <div class="wrap">
           <div class="section-head center" data-reveal>
             <p class="eyebrow">איך מזמינים</p>
-            <h2 id="how-title">שלושה צעדים, בלי טפסים</h2>
+            <h2 id="how-title">שלושה צעדים, בלי טפסים ארוכים</h2>
           </div>
           <ol class="steps" data-reveal>
             <li class="step">
@@ -962,13 +990,13 @@
             </li>
             <li class="step">
               <span class="step-num"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></span>
-              <h3>שולחים ב-WhatsApp</h3>
-              <p>הסל הופך להודעה אחת מסודרת, עם המוצרים והסכום.</p>
+              <h3>משלמים או שולחים</h3>
+              <p>תשלום מאובטח באשראי, ביט או Apple Pay, או הודעת WhatsApp אחת מסודרת עם המוצרים והסכום.</p>
             </li>
             <li class="step">
               <span class="step-num"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span>
-              <h3>מתאמים את הפרטים</h3>
-              <p>אור חוזרת אליכם לאישור זמינות, תשלום ומסירה.</p>
+              <h3>מתאמים איסוף</h3>
+              <p>אור מכינה את ההזמנה, ומתאמים איתה איסוף ממודיעין.</p>
             </li>
           </ol>
         </div>
@@ -1192,16 +1220,40 @@
         </label>
       </div>
       <div class="drawer-foot" id="cartFoot">
-        <div class="cart-total"><span>סה"כ משוער</span><strong id="cartTotal">₪0</strong></div>
-        <p class="cart-fine">זמינות, משלוח ותשלום מאושרים בשיחה עם אור.</p>
-        <a class="btn btn-forest btn-block" id="sendOrder" href="https://wa.me/972548858424" target="_blank" rel="noopener" aria-label="שליחת ההזמנה ב-WhatsApp (נפתח בחלון חדש)">
-          <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
-          שליחת ההזמנה ב-WhatsApp
-        </a>
-        <div class="cart-secondary">
-          <button class="link-btn" type="button" data-close>להמשיך לבחור</button>
-          <button class="link-btn" type="button" id="clearCart">ניקוי הסל</button>
+        <div class="cart-total"><span>סה"כ לתשלום</span><strong id="cartTotal">₪0</strong></div>
+        <p class="cart-fine">איסוף עצמי ממודיעין בתיאום מראש. אפשר לשלם באשראי כאן, או לשלוח את ההזמנה ב-WhatsApp ולסגור את הפרטים עם אור.</p>
+        <div class="cart-actions" id="cartActions">
+          <button class="btn btn-primary btn-block" type="button" id="startCheckout">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            לתשלום באשראי
+          </button>
+          <a class="btn btn-ghost btn-block" id="sendOrder" href="https://wa.me/972548858424" target="_blank" rel="noopener" aria-label="שליחת ההזמנה ב-WhatsApp (נפתח בחלון חדש)">
+            <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+            שליחת ההזמנה ב-WhatsApp
+          </a>
+          <div class="cart-secondary">
+            <button class="link-btn" type="button" data-close>להמשיך לבחור</button>
+            <button class="link-btn" type="button" id="clearCart">ניקוי הסל</button>
+          </div>
         </div>
+        <form class="checkout" id="checkout" novalidate hidden>
+          <p class="checkout-title">פרטים לתשלום</p>
+          <div class="field-row">
+            <label class="field"><span>שם מלא</span><input type="text" id="coName" name="name" autocomplete="name" required maxlength="80"></label>
+            <label class="field"><span>טלפון נייד</span><input type="tel" id="coPhone" name="phone" autocomplete="tel" inputmode="tel" required maxlength="20" placeholder="05X-XXXXXXX"></label>
+          </div>
+          <label class="field"><span>מייל <small>(לא חובה, לאישור התשלום)</small></span><input type="email" id="coEmail" name="email" autocomplete="email" maxlength="120"></label>
+          <p class="checkout-error" id="checkoutError" role="alert" hidden></p>
+          <button class="btn btn-forest btn-block" type="submit" id="payBtn">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            מעבר לתשלום מאובטח
+          </button>
+          <p class="checkout-secure">התשלום מתבצע בדף מאובטח של Grow (אשראי, ביט או Apple Pay). פרטי האשראי לא נשמרים באתר.</p>
+          <div class="cart-secondary">
+            <button class="link-btn" type="button" id="checkoutBack">חזרה לסל</button>
+            <button class="link-btn" type="button" data-close>להמשיך לבחור</button>
+          </div>
+        </form>
       </div>
     </div>
   </dialog>
@@ -1237,6 +1289,9 @@
       const root = document.documentElement;
       const WA_NUMBER = "972548858424";
       const waLink = (text) => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+      /* Card checkout: the cart is sent to a Make scenario that verifies prices and stock
+         against the owner's sheet and returns a Grow payment-page URL. */
+      const CHECKOUT_URL = "https://hook.eu1.make.com/wvt35xfaeg4mc7px88kcbn3loyj6rtlz";
       const reducedQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
       const motionOK = () => !reducedQuery.matches && !root.classList.contains("a11y-motion");
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1470,6 +1525,80 @@
         $("#cart .dialog-close").focus();
       });
       $$("[data-open-cart]").forEach((b) => b.addEventListener("click", () => openDialog($("#cart"))));
+
+      /* ===== Card checkout ===== */
+      const CO_KEY = "adma-checkout";
+      const checkout = $("#checkout");
+      const cartActions = $("#cartActions");
+      const coError = $("#checkoutError");
+      const payBtn = $("#payBtn");
+      const coFields = { name: $("#coName"), phone: $("#coPhone"), email: $("#coEmail") };
+      try {
+        const saved = JSON.parse(localStorage.getItem(CO_KEY));
+        if (saved) Object.keys(coFields).forEach((k) => { if (typeof saved[k] === "string") coFields[k].value = saved[k]; });
+      } catch (e) {}
+      /* Sheet catalog ids: variants are numbered in order (p01 → p01-1, p01-2). */
+      const catalogIdOf = (item) => {
+        const p = byId.get(item.id);
+        if (!p || !p.variants) return item.id;
+        const idx = p.variants.findIndex((v) => v.label === item.variant);
+        return idx < 0 ? item.id : item.id + "-" + (idx + 1);
+      };
+      const showCheckoutError = (html) => { coError.innerHTML = html; coError.hidden = false; };
+      const setCheckoutMode = (on) => {
+        cartActions.hidden = on;
+        checkout.hidden = !on;
+        coError.hidden = true;
+        if (on) coFields.name.focus();
+      };
+      $("#startCheckout").addEventListener("click", () => setCheckoutMode(true));
+      $("#checkoutBack").addEventListener("click", () => { setCheckoutMode(false); $("#startCheckout").focus(); });
+      const validPhone = (s) => /^0(5\d|[2-9])[\s-]?\d{3}[\s-]?\d{4}$/.test(s.trim());
+      checkout.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!cart.items.length) { closeDialog($("#cart")); return; }
+        const name = coFields.name.value.trim();
+        const phone = coFields.phone.value.trim();
+        const email = coFields.email.value.trim();
+        let bad = null;
+        if (name.length < 2) bad = coFields.name;
+        else if (!validPhone(phone)) bad = coFields.phone;
+        else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) bad = coFields.email;
+        Object.values(coFields).forEach((f) => f.setAttribute("aria-invalid", String(f === bad)));
+        if (bad) {
+          showCheckoutError(bad === coFields.name ? "צריך שם מלא כדי להמשיך." : bad === coFields.phone ? "צריך מספר טלפון ישראלי, למשל 054-1234567." : "כתובת המייל לא נראית תקינה.");
+          bad.focus();
+          return;
+        }
+        try { localStorage.setItem(CO_KEY, JSON.stringify({ name, phone, email })); } catch (err) {}
+        const payload = {
+          items: cart.items.map((i) => ({ id: catalogIdOf(i), qty: i.qty })),
+          name, phone, email,
+          note: cart.note.trim(),
+          total: cartTotal()
+        };
+        payBtn.setAttribute("aria-busy", "true");
+        coError.hidden = true;
+        const fallback = `<a href="${esc(waLink(orderText()))}" target="_blank" rel="noopener">להזמין ב-WhatsApp במקום</a>`;
+        try {
+          const res = await fetch(CHECKOUT_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+          let data = null;
+          try { data = await res.json(); } catch (err) {}
+          if (res.ok && data && data.ok && /^https:\/\/pay\.grow\.link\//.test(data.url)) {
+            payBtn.textContent = "עוברים לדף התשלום…";
+            window.location.assign(data.url);
+            return;
+          }
+          if (res.status === 409) {
+            showCheckoutError("אחד המוצרים בסל אזל בינתיים או שהכמות המבוקשת גדולה מהמלאי. אפשר להקטין כמות, או " + fallback + " ואור תבדוק מה זמין.");
+          } else {
+            showCheckoutError("לא הצלחנו ליצור דף תשלום כרגע. אפשר לנסות שוב בעוד רגע, או " + fallback + ".");
+          }
+        } catch (err) {
+          showCheckoutError("אין חיבור לשרת התשלום. בדקו את החיבור לאינטרנט ונסו שוב, או " + fallback + ".");
+        }
+        payBtn.removeAttribute("aria-busy");
+      });
 
       /* ===== Fly-to-cart ===== */
       const flyToCart = (fromImg) => {
