@@ -1833,7 +1833,7 @@
          CATALOG_CSV_URL = the "קטלוג" tab published to the web as CSV (File → Share → Publish to web).
          Columns: A id, E price, F quantity, G active (כן/לא). Variants use ids like p01-1, p01-2.
          Until the URL is set, the flags written in PRODUCTS above are used. */
-      const CATALOG_CSV_URL = "";
+      const CATALOG_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSH0fGDmsuNATvSwZjd4IaqoLWSDyx4oewyyLw0OHF1PvMnoF7uR60pg97RRF1hUjowR6DeDJ_S_0S5/pub?gid=1727707118&single=true&output=csv";
       const parseCSV = (text) => {
         const rows = []; let row = [], cell = "", q = false;
         for (let i = 0; i < text.length; i++) {
