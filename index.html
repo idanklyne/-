@@ -159,8 +159,6 @@
     .brand { display: inline-flex; text-decoration: none; }
     .brand img { width: 48px; height: 48px; object-fit: contain; transform-origin: right center; transition: transform 300ms var(--ease); }
     .topbar.scrolled .brand img { transform: scale(0.9); }
-    /* On wide screens the emblem sits a bit outside the content column, closer to the page edge. */
-    @media (min-width: 1320px) { .brand { margin-inline-end: -56px; } }
     .nav-links { display: flex; align-items: center; gap: 28px; font-size: 0.95rem; font-weight: 600; color: var(--muted); }
     .nav-links a { position: relative; text-decoration: none; padding: 6px 0; transition: color 160ms ease; }
     .nav-links a::after {
@@ -826,7 +824,7 @@
       .menu-btn { display: grid; }
       .cart-btn .cart-label { display: none; }
       .cart-btn { padding: 0 12px; }
-      .brand img { width: 138px; }
+      .brand img { width: 44px; height: 44px; }
       .hero-grid, .story-layout, .gifts-card { grid-template-columns: 1fr; }
       .hero-visual { max-width: 560px; }
       .season-grid { grid-template-columns: repeat(2, 1fr); }
